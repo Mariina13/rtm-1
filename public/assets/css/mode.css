@@ -1,0 +1,180 @@
+/* Couleur css https://www.quackit.com/css/color/tools/css_color_scheme_generator.cfm*/
+/*XXXXXXXXXXXXXXXXXXXXXXX SECTION READ XXXXXXXXXXXXXXXXXXXXXX*/
+.formModeRead
+{
+    width: 24%;
+    background-color:#008efd;
+    margin : 4% auto;
+    font-family: "OpenSansCondensed-Bold";
+    text-transform:uppercase;
+    color: white;
+    font-size: 18px;
+    height: 40px;
+    font-weight: 100;
+    padding: 25px;
+}
+.modeRead
+{
+    width:65%;
+    margin:8% auto;
+    font-family: "OpenSansCondensed-Light";
+    border-radius: 10px 10px ;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    cursor:pointer;
+}
+.modeRead table
+{
+    width:100%;
+    border-radius: 10px 10px;
+    border: solid 2px #005ea8;
+    text-align: center;
+    line-height: 30px;
+    padding: 10px 10px;
+    border-collapse: collapse;
+    box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+    -o-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+    -ms-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+}
+.modeRead caption
+{
+    background-color:#008efd;
+    color: white;
+    font-size:22px;
+    padding:8px 0 8px 0 ;
+    border-radius:10px 10px 0 0;
+}
+.modeRead tr
+{
+    background-color: #FDF9F9;
+    padding:auto;
+
+}
+.modeRead th, .modeRead td
+
+{
+    border: solid 1px #005ea8;
+    color:#008efd;
+    margin: 20px auto 20px auto;
+    font-size:16px;
+    padding:4px 10px 4px 10px ;
+}
+
+.modeButton
+{
+    cursor:pointer;
+    background-color:white;
+    border: 1px solid white;
+    margin-left:14%;
+    border-radius:10px;
+    
+}
+.fas, .fa-cogs
+{
+    color:#008efd;
+    font-size:22px;
+    border-radius:10px;
+    padding:4px;
+    margin-top:0;
+}
+
+/*XXXXXXXXXXXXXXXXXXXXXXX SECTION CREATE XXXXXXXXXXXXXXXXXXXXXX*/
+
+.modeCreate
+{
+    width:70%;
+    box-sizing: border-box;
+    margin:3% auto;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+    -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+    -webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);
+}
+.modeCreate h3
+{
+
+    background: #008efd;
+    text-align:center;
+    font-family: "OpenSansCondensed-Light";
+    text-transform:uppercase;
+    color: white;
+    font-size: 20px;
+    font-weight: 100;
+    padding: 10px;
+}
+.formMode
+{  
+    width:70%;
+    margin:25px auto;
+    padding:25px;
+}
+
+.formMode button
+{
+    cursor:pointer;
+    width:30%;
+    -moz-box-shadow: inset 0px 1px 0px 0px #008efd;
+    -webkit-box-shadow: inset 0px 1px 0px 0px #008efd;
+    box-shadow: inset 0px 1px 0px 0px #008efd;
+    background-color: #008efd;
+    border: 1px solid #008efd;
+    cursor: pointer;
+    color: #FFFFFF;
+    font-family: "OpenSansCondensed-Light";
+    font-size: 18px;
+    margin:20px 35%;;
+    padding: 8px 18px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+/*XXXXXXXXXXXXXXXXXX SECTION UPDATE XXXXXXXXXXXXXXXXXXXXXXX*/
+
+.modeUpdate
+{
+    width:70%;
+    margin:3% auto;
+    padding-bottom:20px;
+    padding:15px;
+}
+.modeUpdate h2
+{
+
+    background: #008efd;
+    text-align:center;
+    font-family: "OpenSansCondensed-Light";
+    text-transform:uppercase;
+    color: white;
+    font-size: 20px;
+    font-weight: 100;
+    padding: 10px;
+}
+.formModeUpdate
+{  
+    width:60%;
+    margin:15px auto;
+}
+#labelMode
+{
+    color:#005ea8;
+    font-size:18px;
+    font-family: "OpenSansCondensed-Light";
+
+}
+.formModeUpdate button
+{
+    cursor:pointer;
+    width:30%;
+    -moz-box-shadow: inset 0px 1px 0px 0px #008efd;
+    -webkit-box-shadow: inset 0px 1px 0px 0px #008efd;
+    box-shadow: inset 0px 1px 0px 0px #008efd;
+    background-color: #008efd;
+    border: 1px solid #008efd;
+    cursor: pointer;
+    color: #FFFFFF;
+    font-family: "OpenSansCondensed-Light";
+    font-size: 18px;
+    margin:20px 30%;;
+    padding: 8px 18px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
