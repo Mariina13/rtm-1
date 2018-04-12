@@ -28,13 +28,13 @@ $(document).ready(function() {
                 sortAscending:  ": activer pour trier la colonne par ordre croissant",
                 sortDescending: ": activer pour trier la colonne par ordre décroissant"
             }
-        },
-       // ajax : "ajax"
+        }
+       //ajax : "ajax"
         });
-    setInterval(function () {
+    //setInterval(function () {
         table.ajax.reload( null, false ); // user paging is not reset on reload
     }, 30000 );
-    });
+    //});
     $('#tableIp tbody').on( 'click', 'tr', function () {
         if ( $(this).hasClass('selected') ) {
             $(this).removeClass('selected');
