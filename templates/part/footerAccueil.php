@@ -8,7 +8,6 @@
     <script type="text/javascript" src="<?php echo $urlAccueil ?>assets/js/fontawesome-all.js"></script>
     <!-- DATATABLES -->
     <script type="text/javascript" src="<?php echo $urlAccueil ?>assets/js/datatables.min.js"></script>
-    <script type="text/javascript" src="<?php echo $urlAccueil ?>assets/js/dataTables.select.min.js"></script>
     <!-- ROUTE POUR AJAX -->
     <script> <?php $urlAjax  = $this->generateUrl("ajax"); ?></script>
     <!-- SCRIPT POUR LES FONCTIONS DES IHM -->

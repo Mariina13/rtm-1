@@ -24,7 +24,6 @@ $urlLogout              = $this->generateUrl("logout");
     <link type="text/css" rel="stylesheet" href="<?php echo $urlAccueil ?>assets/css/fa-svg-with-js.css"/>
     <!-- DATATABLES -->
     <link type="text/css" rel="stylesheet" href="<?php echo $urlAccueil ?>assets/css/datatables.min.css">
-    <link type="text/css" rel="stylesheet" href="<?php echo $urlAccueil ?>assets/css/select.dataTables.min.css">
     
     <!-- CSS DES IHM -->
     <link type="text/css" rel="stylesheet" href="<?php echo $urlAccueil ?>assets/css/utilisateurs.css"/>
@@ -34,6 +33,7 @@ $urlLogout              = $this->generateUrl("logout");
     <link type="text/css" rel="stylesheet" href="<?php echo $urlAccueil ?>assets/css/mediaScreen.css"/>
     <link type="text/css" rel="stylesheet" href="<?php echo $urlAccueil ?>assets/css/mode.css"/>
     <link type="text/css" rel="stylesheet" href="<?php echo $urlAccueil ?>assets/css/dataTables.css"/>
+    <link type="text/css" rel="stylesheet" href="<?php echo $urlAccueil ?>assets/css/normalize.css"/>
     <link type="text/css" rel="stylesheet" href="<?php echo $urlAccueil ?>assets/css/frontalsiv_accueil.css">
 </head>
 
@@ -60,7 +60,7 @@ if ($verifNiveau >= 7)
         </li>
 CODEHTML;
 }
-    if($verifNiveau >= 4)
+    if($verifNiveau == 4)
     {
     echo
 <<<CODEHTML
