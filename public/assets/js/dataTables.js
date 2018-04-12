@@ -28,13 +28,13 @@ $(document).ready(function() {
                 sortAscending:  ": activer pour trier la colonne par ordre croissant",
                 sortDescending: ": activer pour trier la colonne par ordre décroissant"
             }
-        }
-       //ajax : "ajax"
-        });
-    //setInterval(function () {
-        table.ajax.reload( null, false ); // user paging is not reset on reload
-    }, 30000 );
-    //});
+        },
+        "bStateSave": true,
+        "sPaginationType": "full_numbers",
+        "bProcessing": true,
+        "bServerSide": true,
+        "sAjaxSource": "<?php echo url_for('ajax') ?>",
+    });
     $('#tableIp tbody').on( 'click', 'tr', function () {
         if ( $(this).hasClass('selected') ) {
             $(this).removeClass('selected');
@@ -44,6 +44,7 @@ $(document).ready(function() {
             $(this).addClass('selected');
         }
     });
+});
 $(document).ready(function() {
     var table = $('#tableGeze').DataTable( {
 

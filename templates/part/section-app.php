@@ -18,11 +18,5 @@ if ($objetRequest->get("afficher", "") == "updateParametre")
 
 <!-- TABLEAUX -->
 
-<?php require_once("$cheminPart/section-bornes-ip.php"); ?>
-
-<?php require_once("$cheminPart/section-bornes-radio.php"); ?>
-
-<?php require_once("$cheminPart/section-bornes-geze.php"); ?>
-
-<?php require_once("$cheminPart/section-systeme.php"); ?>
+<?php require_once("$cheminPart/ajax.php"); ?>
 
