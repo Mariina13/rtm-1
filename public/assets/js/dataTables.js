@@ -31,12 +31,12 @@ $(document).ready(function() {
         },
 
         
-        /*"bStateSave": true,
+        "bStateSave": true,
         "sPaginationType": "full_numbers",
         "bProcessing": true,
         "bServerSide": true,
-        "sAjaxSource": "ajax",*/
-        ajax: "ajax"
+        "sAjaxSource": "ajax"
+        //ajax: "ajax"
     } );
      
     setInterval( function () {
