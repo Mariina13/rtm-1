@@ -29,12 +29,19 @@ $(document).ready(function() {
                 sortDescending: ": activer pour trier la colonne par ordre décroissant"
             }
         },
-        "bStateSave": true,
+
+        
+        /*"bStateSave": true,
         "sPaginationType": "full_numbers",
         "bProcessing": true,
         "bServerSide": true,
-        "sAjaxSource": "<?php echo url_for('ajax') ?>",
-    });
+        "sAjaxSource": "ajax",*/
+        ajax: "ajax"
+    } );
+     
+    setInterval( function () {
+        table.ajax.reload();
+    }, 30000 );
     $('#tableIp tbody').on( 'click', 'tr', function () {
         if ( $(this).hasClass('selected') ) {
             $(this).removeClass('selected');
