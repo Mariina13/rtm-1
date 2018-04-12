@@ -37,9 +37,9 @@ $("#menu li").click(function(){
         // Hide it AFTER the action was triggered
         $("#menu").hide(100);
   });
-$(document).ready(function(){
-
-  setInterval( function () {
-   location.reload("ajax"); // user paging is not reset on reload
-}, 30000 );
-});
+  /*$.ajax({
+    url : "frontalsiv",
+    type :"GET",
+    data : "stations" + id,
+    dataType : "html"
+});*/
