@@ -29,7 +29,7 @@ $(document).ready(function() {
                 sortDescending: ": activer pour trier la colonne par ordre décroissant"
             }
         },
-        ajax : "ajax"
+       // ajax : "ajax"
         });
     setInterval(function () {
         table.ajax.reload( null, false ); // user paging is not reset on reload
