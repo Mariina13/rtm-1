@@ -1,0 +1,145 @@
+/*XXXXXXXXXXXXXX DATATABLE XXXXXXXXXXXXXXXXXXXXXX*/
+#tableId_wrapper, #tableRadio_wrapper, #tableIp_wrapper
+{
+    width:80%;
+    margin:20px auto;
+    font-weight: bold;
+    font-family: "OpenSansCondensed-Bold";
+    color:#005ea8;
+    text-align:center;
+    
+}
+#tableId_wrapper label, #tableRadio_wrapper label, #tableIp label
+{
+    font-size:17px;
+    font-weight: bold;
+    color:#005ea8;
+}
+#tableId , #tableRadio, #tableIp
+{
+    width:100%;
+    font-size:20px;
+    cursor:pointer;
+}
+#tableId td, #tableIp td{
+    color:#008efd ;
+}
+#tableId_info, #tableRadio_info, #tableIp_info{
+    margin-left: 25px;
+    font-size:17px;
+    color:#005ea8;
+}
+#tableId_length,#tableRadio_length, #tableIp_length
+{
+    margin-left:25px;
+    margin-bottom:5px;
+    font-size:17px;
+}
+#tableId_length select , #tableRadio_length select, #tableIp_length select{
+    text-align:center;
+    text-align-last: center;
+    font-weight: bold;
+    padding:4px;
+    border-radius:5px;
+    font-family: "OpenSansCondensed-Bold";
+    color:#4D4D4D;
+
+}
+#tableId_filter ,#tableRadio_filter, #tableIp_filter
+{
+    margin-right: 25px;
+}
+#tableId_filter input[type = "search"], #tableRadio_filter input[type = "search"], #tableIp_filter input[type = "search"]
+{
+    font-family: "OpenSansCondensed-Bold";
+    border-radius:5px;
+    font-weight: bold;
+    color:#4D4D4D;
+    text-transform:uppercase;
+}
+.dataTables_empty
+{
+    text-transform:uppercase;
+    font-size:25px;
+}
+#tableId_paginate,  #tableRadio_paginate, #tableIp_paginate
+{
+    margin-top:5px;
+    cursor:pointer !important;
+}
+#tableId_paginate a,  #tableRadio_paginate a, #tableIp_paginate a
+{
+    border-radius:5px;
+    cursor:pointer !important;
+    color:#008efd !important;
+}
+/* XXXXXXXXXXXXXXXXXXXXX DATATABLE POUR GEZE XXXXXXXXXXXXXXXX */
+#tableGeze_wrapper
+{
+    width:80%;
+    margin:20px auto;
+    font-weight: bold;
+    font-family: "OpenSansCondensed-Bold";
+    color:#005ea8;
+    text-align:center;
+    
+}
+#tableGeze_wrapper label
+{
+    font-size:17px;
+    font-weight: bold;
+    color:#005ea8;
+}
+#tableGeze
+{
+    width:100%;
+    font-size:20px;
+    cursor:pointer;
+}
+#tableGeze td{
+    color:#008efd ;
+}
+#tableGeze_info{
+    margin-left: 25px;
+    font-size:17px;
+    color:#005ea8;
+}
+#tableGeze_length
+{
+    margin-left:25px;
+    margin-bottom:5px;
+    font-size:17px;
+}
+#tableGeze_length select {
+    text-align:center;
+    text-align-last: center;
+    font-weight: bold;
+    padding:4px;
+    border-radius:5px;
+    font-family: "OpenSansCondensed-Bold";
+    color:#4D4D4D;
+
+}
+#tableGeze_filter
+{
+    margin-right: 25px;
+}
+#tableGeze_filter input[type = "search"]
+{
+    font-family: "OpenSansCondensed-Bold";
+    border-radius:5px;
+    font-weight: bold;
+    color:#4D4D4D;
+    text-transform:uppercase;
+}
+#tableGeze_paginate
+{
+    margin-top:5px;
+    cursor:pointer !important;
+}
+#tableGeze_paginate a
+{
+    border-radius:5px;
+    cursor:pointer !important;
+    color:#008efd !important;
+}

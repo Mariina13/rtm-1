@@ -1,0 +1,174 @@
+@font-face {
+    font-family: "OpenSansCondensed-Bold";
+    src: url("../css/font/openSansCondensed-Bold.ttf");
+  }
+
+  @font-face {
+    font-family: "OpenSansCondensed-Light";
+    src: url("../css/font/openSansCondensed-Light.ttf");
+  }
+/*XXXXXXXXXXXXXXXXX HORAIRE XXXXXXXXXXXXX*/
+#Horaire
+{
+    display: none;
+    width:50%;
+    margin:10px auto;
+    -moz-box-shadow: 0 2px 1px #008efd;;
+    -webkit-box-shadow: 0 2px 1px #008efd;;
+    box-shadow: 0 2px 1px #008efd;;
+    border: solid 2px #008efd;
+}
+.titreHoraire
+{
+    width:100%;
+    display:inline-block;
+    margin-top:0;
+    text-align:center;
+    text-transform:uppercase;
+    padding:15px auto;
+    color: #FFF;
+    background-color:#008efd;
+    cursor:pointer;
+    font-family: "OpenSansCondensed-Light";
+    -moz-box-shadow: 0 2px 1px #444444;
+    -webkit-box-shadow: 0 2px 1px #444444;
+    box-shadow: 0 2px 1px #444444;
+    border-bottom: solid 1px #444444;
+}
+.horaire
+{
+    width:100%;
+    margin: 10px auto;
+    font-family: "OpenSansCondensed-Bold";
+    text-transform:uppercase;
+    color: white;
+    font-size: 20px;
+    font-weight: 100;
+    padding: 10px auto;
+    border-collapse: collapse;
+}
+.horaire th
+{
+  text-align:center;
+  color:#005ea8;
+  text-transform:uppercase;
+  margin: 20px auto 20px auto;
+  font-weight: bold;
+  font-size:19px;
+  padding:20px 25px ;
+  border-collapse: collapse;
+}
+.horaire td
+{
+  text-align:center;
+  color:#005ea8;
+  margin: 20px auto 20px auto;
+  font-weight: bold;
+  font-size:16px;
+  padding:6px 25px;
+}
+
+/*XXXXXXXXXXXXXXXXX  CSS pour div parametrage   XXXXXXXXXXXXXXXXXXXXX */
+#parametrage
+{
+    display:none;
+    background-color:white;
+    color:#4D4D4D;
+    position: absolute;
+    cursor:pointer;
+    top:10%;
+    left:43%;
+    width: 250px;
+    width:80%;
+    font-size:12px;
+    border:2px solid #005ea8;
+    border-radius:15px;
+    z-index: 999999;
+}
+#parametrage h2{
+    color:white;
+    font-family: "OpenSansCondensed-Light";
+    font-size:18px;
+    width:50%;
+    margin:20px 20px;
+    text-transform:uppercase;
+    font-weight: bold;
+}
+#parametre
+{
+    font-family: "OpenSansCondensed-Light";
+    width:80%;
+    font-weight: bold;
+    margin:10px auto;
+    display:block;
+    border-radius:15px;
+
+}
+#fermer1
+{   
+    cursor:pointer;
+    text-align:center;
+    font-size:14px;
+    margin:20px auto;
+    margin-left:50px;
+    color:white;
+    width:50%;
+    background-color:#005ea8;
+    border:1px solid #005ea8;
+    padding:5px 10px;
+}
+#parametre label
+{
+    width:100%;
+    font-size:16px;
+    margin:10px auto;
+    padding:3px;
+    text-align: center;
+    text-align-last: center;
+}
+#parametre input[type="text"]
+{
+    width:100%;
+    margin:5px auto;
+    font-size:14px;
+    padding:3px;
+    text-align: center;
+    text-align-last: center;
+}
+#parametre select
+{
+    width:100%;
+    font-size:14px;
+    margin:5px auto;
+    padding:3px;
+    text-align: center;
+    text-align-last: center;
+}
+#parametrage button
+{
+    border-radius : 5px;
+}
+.titre{
+    width:100%;
+    display:inline-block;
+    margin-top:0;
+    border-radius:10px 10px 0 0;
+    text-align:center;
+    text-transform:uppercase;
+    padding:15px auto;
+    color: #FFF;
+    background-color:#008efd;
+    cursor:pointer;
+    font-family: "OpenSansCondensed-Light";
+    box-shadow: 1px 2px 1px #005ea8;
+    border-bottom:1px solid #005ea8;
+}
+.close{
+   top:0;
+   border-radius:5px;
+   margin-right: 5px;
+   margin-top:5px;
+   background-color:red;
+   color:white;
+   float: right;
+}

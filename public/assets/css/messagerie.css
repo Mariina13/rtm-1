@@ -134,30 +134,38 @@ section.messagerie{
 }   
 
 .messagerie form{
-  width: 50%;
-  margin: 40px auto;
-  padding:20px; 
+  width: 500px;
+  margin: 40px auto;    
 }
 
 .select{
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   text-transform:uppercase;
   outline: none;
+  font-weight: bold;
   display: block;
+  width: 100%;
+  padding: 35px auto;
   border: none;
   color:#4D4D4D;
   border-bottom: 1px solid #ddd;
   background: transparent;
+  margin-bottom: 20px;
   font-size:18px;
   font-family: "OpenSansCondensed-Light";
   height: 45px;
 }
-
+#sens{
+  width:100%;
+}
 .select, option{
-    width:60%;
-    margin:10px auto;
+    width:100%;
     text-align: center;
     text-align-last: center;
     letter-spacing:1.5px;
+    padding: 20px auto;
     font-weight: bold;
     cursor:pointer;
 }

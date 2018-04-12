@@ -1,0 +1,232 @@
+/*XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX*/
+/*XXXXXXXXXXXXX HR XXXXXXXXXXXXXX*/
+hr{
+    width: 70%;
+    border: 0;
+    border-bottom: 1px solid #E6E9EC;
+    margin:40px auto;
+}
+/*XXXXXXXXXXX ACCUEIL + HEADER XXXXXXXXXXXXXXX*/
+#table_entete
+{
+    width: 100%;
+    background: linear-gradient(to right, white, white, #eb9816);
+    border-radius: 5px;
+}
+img
+{
+    width: 100px;
+    margin:10px 30px;
+}
+h1
+{   
+    display:inline-block;
+    color: #ABA5A5;
+    text-align:center;
+    font-family: "OpenSansCondensed-Bold";
+    font-weight: normal;
+    top:0;
+    font-size: 40px;
+    letter-spacing: 2px;
+    margin-left:27%;
+    margin-bottom:30px;
+}
+.bienvenue
+{
+    font-size: 25px;
+    font-family: "OpenSansCondensed-Bold";
+    color:#4D4D4D;
+    text-align:center;
+    line-height: 1px;
+    letter-spacing: 1.5px;
+    margin:30px 5%;
+    display:none;
+}
+.menu
+{
+    list-style-type: none;
+}
+main
+{
+    margin-top:40px;
+}
+section .bornes-ip, section .bornes-radio , section .systeme
+{
+    margin-top:8%;
+}
+.ko
+{
+    width:50%;
+    margin-left: 34%;
+    color:red;
+    font-size:16px;
+    font-weight: bold;
+    text-transform:Uppercase;
+}
+.fas ,.fa-exclamation-triangle
+{
+    margin-right:10px;
+    font-size:22px;
+}
+.response
+{
+    color:#326DAF;
+    margin-top:20px;
+    font-size:18px;
+    font-weight: bold;
+    text-transform:Uppercase;
+}
+/*XXXXXXXXXXXX MENU XXXXXXXXXXXXXXXXXXXXXX*/
+.menu nav
+{
+    background: #4D4D4D;
+    width:100%;
+    margin:15px auto;
+
+
+}
+.menu{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding:5px auto;
+    list-style: none;
+    background: #4D4D4D;
+    -moz-box-shadow: 0 2px 1px #9c9c9c;
+    -webkit-box-shadow: 0 2px 1px #9c9c9c;
+    box-shadow: 0 2px 1px #9c9c9c;
+}
+.menu li{
+    float: left;
+    padding: 0 30px 0 0;
+    position: relative;
+}
+.menu a{
+    float: left;
+    text-align:center;
+    padding: auto;
+    padding-bottom:8px;
+    margin-top:10px;
+    font-family: "OpenSansCondensed-Light";
+    color: white;
+    text-transform: uppercase;
+    font-size: 22px;
+    text-decoration: none;
+}
+.menu li:hover > a{
+    color: #fafafa;
+}
+.menu li a:hover
+{ 
+    color: #fafafa;
+}
+.menu li:hover > ul{
+    display: block;
+}
+/*XXXXXXXXXXXXXXX MENU CONTEXTUEL XXXXXXXXXXXXX*/
+/* http://www.frogweb.fr/menu-deroulant-vertical/
+couleur
+https://www.quackit.com/css/color/tools/css_color_scheme_generator.cfm*/
+#box
+{
+    width:180px;
+    border-radius:10px;  
+}
+#menu
+{
+    position:absolute;
+    cursor:pointer;
+    text-transform:uppercase;
+    display:none;
+    right: 40%;
+    z-index:999;
+    text-shadow:1px 2px 1px white;
+}
+
+#menu-vertical
+{   
+    padding:0;
+    margin:0;
+    position:absolute;
+    cursor:pointer;
+    z-index:999;
+    font-family: "OpenSansCondensed-Light";
+    font-weight: bold;
+    text-shadow:1px 2px 1px white;
+    list-style:none;
+    width: 180px;
+}
+#menu-vertical li 
+{
+    position:relative;
+    padding:5px;
+    text-align:center;
+    line-height: 22px;
+    border:solid 1px #4D4D4D;
+    background-color:#DED8D8;
+    color:#4D4D4D;
+
+}
+#ulMode li
+{
+    position:relative;
+    padding:5px;
+    font-family: "OpenSansCondensed-Light";
+    text-align:center;
+    line-height: 22px;
+    border:solid 1px #4D4D4D;
+    background-color:#DED8D8;
+    color:#4D4D4D;
+
+}
+#menu-vertical ul {
+    padding:0;
+    margin:0;
+    text-transform:uppercase;
+    font-size:12px;
+    position:absolute;
+    cursor:pointer;
+    z-index:999;
+    font-family: "OpenSansCondensed-Light";
+    font-weight: bold;
+    text-shadow:1px 2px 1px white;
+    list-style:none;
+    width: 180px;
+    left:-999em;
+  }
+#menu-vertical li:hover ul 
+{
+    top: 0;
+    left: 180px;
+}
+#menu-vertical li:hover
+  {
+    background-color:#444444;
+    color:white;
+    color:white;
+    text-transform:uppercase;
+    font-size:12px;
+    text-shadow:1px 2px 1px black;
+  }
+#menu-vertical li li {
+    transition: all .2s;
+    text-align:center;
+    top:0;
+  
+}
+.aligner
+{
+    text-align:center;
+}
+.fas, .fa-caret-right
+{
+    float: right;
+    font-size:24px;
+}
+/*XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX*/
+/*XXXXXXXXXXXXXX DIV DIALOG XXXXXXXXXXXXXXXXXXXXX*/
+
+#dialog
+{
+    display:none;
+}

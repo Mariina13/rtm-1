@@ -1,0 +1,102 @@
+section{
+    margin:30px auto;
+}
+/*XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX*/
+/*XXXXXXXXXXXXXX TABLEAU PAGE D'ACCUEIL XXXXXXXXXXXXXXXXXXXXXX*/
+.bornes-ip
+{   
+    width:70%;
+    margin:3% auto;
+    font-family: "OpenSansCondensed-Light";
+    border-radius: 10px 10px ;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    
+}
+.bornes-radio
+{   
+    width:70%;
+    margin: 60px auto;
+    font-family: "OpenSansCondensed-Light";
+    border-radius: 10px 10px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    
+}
+.systeme
+{
+    width:60%;
+    margin: 60px auto;
+    font-family: "OpenSansCondensed-Light";
+    border-radius: 10px 10px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    
+}
+.bornes-ip table, .bornes-radio table, .systeme table
+{
+    width:100%;
+    border-radius: 10px 10px;
+    border: solid 2px #005ea8;
+    text-align: center;
+    line-height: 30px;
+    padding: 10px 10px;
+    border-collapse: collapse;
+    box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+    -o-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+    -ms-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+   
+  
+}
+.bornes-radio caption
+{
+    background-color:#008efd;
+    color: white;
+    font-size:22px;
+    padding:8px 0 8px 0 ;
+    border-radius:10px 10px 0 0;
+}
+.bornes-radio th, .systeme th
+{
+    color:#008efd;
+}
+.bornes-ip caption, .systeme caption{
+    background-color:#005ea8;
+    color: white;
+    font-size:22px;
+    padding:8px 0 8px 0 ;
+    border-radius:10px 10px 0 0;
+}
+.bornes-ip tr, .bornes-radio tr, .systeme tr{
+        background-color: #FDF9F9;
+        padding:auto;
+}
+.bornes-ip th, .bornes-radio th, .systeme th, .bornes-ip td, .bornes-radio td, .systeme td{
+    border: solid 1px #005ea8;
+    margin: 20px auto 20px auto;
+    font-size:16px;
+    padding:6px 10px 6px 10px ;
+    
+}
+.bornes-ip table tbody tr:nth-child(even), .bornes-radio table tbody tr:nth-child(even), .systeme table tbody tr:nth-child(even){
+    background-color: #FDF9F9;
+}
+.bornes-ip table tbody tr:nth-child(odd), .bornes-radio table tbody tr:nth-child(odd), .systeme table tbody tr:nth-child(odd) {
+    background-color:#DED8D8;
+}
+.bornes-ip button, .bornes-radio button
+{
+    cursor:pointer;
+    background-color:#008efd;
+    border: solid 1px  #008efd;
+    color:white;
+    font-size:22px;
+    border-radius:50%;
+    padding:8px;
+}
+.fa-plus-square:nth-child(even)
+{
+    background-color:#FDF9F9;
+    font-size:22px;
+    cursor:pointer;
+}
+
