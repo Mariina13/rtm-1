@@ -100,7 +100,7 @@
     color: white;
     font-size: 20px;
     font-weight: 100;
-    padding: 10px;
+    padding: 8px;
 }
 .formMode
 {  
@@ -109,7 +109,7 @@
 }
 .modeCreate select, .modeCreate option
 {
-    padding: 25px auto;
+    padding: 10px auto;
 }
 .formMode button
 {

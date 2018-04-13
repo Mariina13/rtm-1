@@ -64,7 +64,7 @@ return $objetStatement;
 
     }
 
-    public function afficherNomStation($objetConnection, $sigep, $id)
+    public function afficherNomStation($objetConnection, $sigep)
     {
 
         $requeteSQL =
@@ -78,25 +78,7 @@ CODESQL;
 
         // http://docs.doctrine-project.org/projects/doctrine-dbal/en/latest/reference/data-retrieval-and-manipulation.html#list-of-parameters-conversion
         $objetStatement = $objetConnection->prepare($requeteSQL);
-        $objetStatement->execute(["sigep" => $sigep , "id" => $id]);
-
-return $objetStatement;
-
-    }
-    public function lireStation($objetConnection)
-    {
-
-        $requeteSQL =
-<<<CODESQL
-SELECT nomPtReseau
-FROM stations
-WHERE id
-
-CODESQL;
-
-        // http://docs.doctrine-project.org/projects/doctrine-dbal/en/latest/reference/data-retrieval-and-manipulation.html#list-of-parameters-conversion
-        $objetStatement = $objetConnection->prepare($requeteSQL);
-        $objetStatement->execute(["id" => "ASC"]);
+        $objetStatement->execute(["sigep" => $sigep ]);
 
 return $objetStatement;
 
