@@ -25,7 +25,8 @@ class FormArticle
         $typeMessagerie        = $objetRequest->get("typeMessagerie", "");
         $operation             = $objetRequest->get("operation","");
         $sousTypeOperation     = $objetRequest->get("sousTypeOperation", "");
-        $typeMessagerie         = $objetRequest->get("typeMessagerie", "");
+        $typeMessagerie        = $objetRequest->get("typeMessagerie", "");
+        $idInterne             = $objetRequest->get("idInterne","");
 
         if (isset($_POST["id_stations"]) && ($texte != ""))
         {
@@ -35,7 +36,7 @@ class FormArticle
         $messageEnvoye  = 1;
         $dateEnvoi = date("Y-m-d H:i:s");
         
-
+        $idInterne = $idStations + $texte ;
 
         //Traitement des informations pour la table opération utilisateurs
         $sousTypeOperation = 0 ;
@@ -50,6 +51,7 @@ class FormArticle
         // Insertion dans la base de données
         $objetConnection->insert("messagerie_commerciale", 
                                 [   "id_stations"       => $idStations,
+                                    "id_interne"        => $idInterne,
                                     "texte"             => $texte,
                                     "date_envoi"        => $dateEnvoi,
                                     "message_envoye"    => $messageEnvoye,
