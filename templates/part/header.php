@@ -44,6 +44,8 @@ $urlLogout              = $this->generateUrl("logout");
         <h1 class="h1">FRONTAL SIV SUPERVISION V3.0</h1>
 
     <div class="nav">
+        <nav>
+            <ul class="menu">
 
 <?php
 $verifNiveau = $objetSession->get("niveau");
@@ -53,14 +55,12 @@ if ($verifNiveau >= 7)
     
     echo 
 <<<CODEHTML
-    <nav>
-    <ul class="menu">
         <li>
             <a href="$urlFrontalSiv"> Gestion des Bornes </a>
         </li>
 CODEHTML;
 }
-    if($verifNiveau == 4)
+    if($verifNiveau >= 4)
     {
     echo
 <<<CODEHTML
@@ -87,12 +87,13 @@ CODEHTML;
         <li>
             <a  href="$urlLogout"> Deconnexion </a>
         </li>
-    </ul>
-</nav>
+    
 CODEHTML;
     
     }
 ?>
+                </ul>
+            </nav>
     </div>
 </header>
 

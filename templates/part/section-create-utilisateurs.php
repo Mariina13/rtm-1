@@ -13,6 +13,7 @@ error_reporting(E_ALL);
             <input class="champ" type="text" name="user" required placeholder="Identifiant"/>
             <select name="niveau" required>
                 <option value=""> -- Choisissez le type d'utilisateur --</option>
+                <option value="4"> 4 ( Accés messagerie)</option>
                 <option value="7"> 7 ( Utilisateur )</option>
                 <option value="9"> 9 ( Administrateur )</option>
             </select>

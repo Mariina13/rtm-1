@@ -9,15 +9,25 @@ error_reporting(E_ALL);
                 <select class="select" name="id_stations[]" multiple="multiple">
                 <option> -- Sélectionner une Station -- </option>
 <?php
-$objetRepository = $this->getdoctrine()->getrepository(App\Entity\Stations::class);
-$tabResultat = $objetRepository->afficherNomStation($objetConnection);
-        
-foreach($tabResultat as $tabLigne)
+
+$objetRepository     = $this->getDoctrine()->getRepository(App\Entity\Bornes::class);
+$tabResultat         = $objetRepository->findBy(["typeEquipement" => ["0","1","2"], "connexion"=> 1]);    
+// ON A UN TABLEAU D'OBJETS DE CLASSE Bornes
+foreach($tabResultat as $objetBornes)
 {
-        extract($tabLigne);
+    $id                = $objetBornes->getId();
+    $sigep             = $objetBornes->getSigep();
+    $type              = $objetBornes->getType();
+
+$objetRepository = $this->getdoctrine()->getrepository(App\Entity\Stations::class);
+$tabResultat = $objetRepository->afficherNomStation($objetConnection, $sigep);
+
+        foreach($tabResultat as $tabLigne)
+        {
+                extract($tabLigne);
 ?>      
         <option value ="<?php echo $id ?>" required > <?php echo $nomPtReseau ?> <?php echo $sens ?> </option>
-<?php } ?>
+<?php }} ?>
         </select>
         <select class="select" name="operation">
                 <option> -- Type d'opération -- </option>

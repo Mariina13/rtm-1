@@ -39,7 +39,13 @@ class LoginController
         
         
         $verifNiveau = $objetSession->get("niveau");
-        if ($verifNiveau >= 7)
+        if ($verifNiveau == 4)
+        {
+            // ON VA VERS LA PAGE admin
+            $urlFrontalSiv = $this->generateUrl("messagerie");
+            return new RedirectResponse($urlMessagerie);
+        }
+        elseif($verifNiveau >= 7)
         {
             // ON VA VERS LA PAGE admin
             $urlFrontalSiv = $this->generateUrl("frontalsiv");
