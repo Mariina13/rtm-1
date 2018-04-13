@@ -32,7 +32,7 @@ class FormArticle
         
         $typeMessagerie = 2 ;
 
-        $messageEnvoye  = "1";
+        $messageEnvoye  = 1;
         $dateEnvoi = date("Y-m-d H:i:s");
         
 

@@ -31,7 +31,7 @@
     $nomPtReseau = $objetRequest->get("nomPtReseau","");
 
         $objetRepository = $this->getDoctrine()->getRepository(App\Entity\MessagerieCommerciale::class);
-        $tabResultat     = $objetRepository->findBy(["messageEnvoye" => "oui"], ["dateEnvoi" => "DESC"]);  
+        $tabResultat     = $objetRepository->findBy(["messageEnvoye" => 1], ["dateEnvoi" => "DESC"]);  
         
         
         foreach($tabResultat as $objetMessagerieCommerciale) 
