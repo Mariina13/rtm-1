@@ -27,6 +27,7 @@ class FormArticle
         $sousTypeOperation     = $objetRequest->get("sousTypeOperation", "");
         $typeMessagerie        = $objetRequest->get("typeMessagerie", "");
         $idInterne             = $objetRequest->get("idInterne","");
+        $validite              = $objetRequest->get("validite","");
 
         if (isset($_POST["id_stations"]) && ($texte != ""))
         {
@@ -35,15 +36,14 @@ class FormArticle
 
         $messageEnvoye  = 1;
         $dateEnvoi = date("Y-m-d H:i:s");
-        
-        $idInterne = $idStations + $texte ;
-
         //Traitement des informations pour la table opération utilisateurs
         $sousTypeOperation = 0 ;
 
         $idStations = $_POST["id_stations"];
         $idStations = implode(',' , $idStations);
-     
+        
+        $idInterne = $idStations.$texte ;
+
         // on récupére l'identifiant de l'utilisateur
         $idUser         = $objetSession->get("id");
         
@@ -52,6 +52,7 @@ class FormArticle
         $objetConnection->insert("messagerie_commerciale", 
                                 [   "id_stations"       => $idStations,
                                     "id_interne"        => $idInterne,
+                                    "validite"          => $validite,
                                     "texte"             => $texte,
                                     "date_envoi"        => $dateEnvoi,
                                     "message_envoye"    => $messageEnvoye,

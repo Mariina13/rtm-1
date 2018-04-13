@@ -54,6 +54,7 @@ $verifNiveau = $objetSession->get("niveau");
             <input type="text" name="user" value="<?php echo $user?>" autocomplete="on">
             <select name="niveau" required>
                 <option value="">  Niveau actuel de l'utilisateur  : <?php echo $niveau ?> </option>
+                <option value="4"> 4 ( Accés messagerie )</option>
                 <option value="7"> 7 ( Utilisateur )</option>
                 <option value="9"> 9 ( Administrateur )</option>
             </select>
@@ -73,10 +74,7 @@ $verifNiveau = $objetSession->get("niveau");
 <?php } 
     if($verifNiveau == 7)
        {
-           /*$idUpdate = $objetRequest->get("idUpdate", 0);
-            // RECUPERER LES AUTRES INFOS POUR PRE-REMPLIR LE FORMULAIRE
-            $objetRepository = $this->getDoctrine()->getRepository(App\Entity\Utilisateurs::class);
-            $objetUtilisateurs = $objetRepository->find($idUpdate);*/
+
    ?>
    <h3> Modifier mon mot de passe </h3>
    <form class="formUpdate">

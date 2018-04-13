@@ -6,8 +6,8 @@ error_reporting(E_ALL);
 <h2>Envoyer un message commerciale </h2>
 
         <form id="messagerie" method="POST">
-                <select class="select" name="id_stations[]" multiple="multiple">
-                <option> -- Sélectionner une Station -- </option>
+        <label for="select"> Sélectionner une Station : </label>
+                <select id="select" class="select" name="id_stations[]" multiple="multiple">
 <?php
 
 $objetRepository     = $this->getDoctrine()->getRepository(App\Entity\Bornes::class);
@@ -30,9 +30,9 @@ $tabResultat = $objetRepository->afficherNomStation($objetConnection, $sigep);
 <?php }} ?>
         </select>
         <select class="select" name="operation">
-                <option> -- Type d'opération -- </option>
-                <option value = "5" selected> Envoyer</option> 
+                <option type="text" value = "5" selected> Envoyer</option> 
         </select>
+        <input type="datetime-local" name="validite" id="calendar" required/>
         <textarea name="texte" placeholder="Votre message" required></textarea>
         <button type="submit"> Valider <i id="modifCreer" class="fas fa-check"></i></button>
             <input type="hidden" name="afficher" value="createMessage">

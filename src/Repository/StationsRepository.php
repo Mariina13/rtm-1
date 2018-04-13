@@ -78,7 +78,7 @@ CODESQL;
 
         // http://docs.doctrine-project.org/projects/doctrine-dbal/en/latest/reference/data-retrieval-and-manipulation.html#list-of-parameters-conversion
         $objetStatement = $objetConnection->prepare($requeteSQL);
-        $objetStatement->execute(["sigep" => $sigep]);
+        $objetStatement->execute(["sigep" => $sigep ]);
 
 return $objetStatement;
 

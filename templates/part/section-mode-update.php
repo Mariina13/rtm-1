@@ -21,19 +21,29 @@ $messageUpdate = ob_get_clean();
 <?php
     $idUpdate = $objetRequest->get("idUpdate", 0);
 
+    $objetRepository     = $this->getDoctrine()->getRepository(App\Entity\Bornes::class);
+    $tabResultat         = $objetRepository->findBy(["typeEquipement" => ["0","1","2"], "connexion"=> 1]);    
+    // ON A UN TABLEAU D'OBJETS DE CLASSE Bornes
+        foreach($tabResultat as $objetBornes)
+        {
+            $id                = $objetBornes->getId();
+            $sigep             = $objetBornes->getSigep();
+            $type              = $objetBornes->getType();
+
     $objetRepository = $this->getDoctrine()->getRepository(App\Entity\Stations::class);
     $objetStations  = $objetRepository->find($idUpdate);
 
     $objetRepository = $this->getDoctrine()->getRepository(App\Entity\TableOperationsUtilisateur::class);
     $objetTableOperationsUtilisateur   = $objetRepository->find($idUpdate);
 
+
         if ($objetStations && $objetTableOperationsUtilisateur) {
                 
             // OK ON A TROUVE UN ARTICLE POUR CET ID
-            $nomPtReseau      = $objetStations->getNomPtReseau();
-            $utilisateursId   = $objetTableOperationsUtilisateur->getUtilisateursId();
-            $idStations       = $objetTableOperationsUtilisateur->getIdStations();
-            $operation        = $objetTableOperationsUtilisateur->getOperation(); 
+            $nomPtReseau          = $objetStations->getNomPtReseau();
+            $utilisateursId       = $objetTableOperationsUtilisateur->getUtilisateursId();
+            $idStations           = $objetTableOperationsUtilisateur->getIdStations();
+            $sousTypeOperation    = $objetTableOperationsUtilisateur->getSousTypeOperation(); 
 
 ?>
     
@@ -41,24 +51,32 @@ $messageUpdate = ob_get_clean();
         <label id="labelMode" for="select"> Modifier le mode <i class="fas fa-arrow-right"></i> <?php echo $nomPtReseau ?> </option>
         <select id ="select" class="select" name = "id_stations" multiple required>
 <?php
-    $objetRepository = $this->getdoctrine()->getrepository(App\Entity\Stations::class);
-    $tabResultat = $objetRepository->afficherNomStation($objetConnection);
-            
-        foreach($tabResultat as $tabLigne)
-        {
-            extract($tabLigne);
+   
 ?>      
-        <option value ="<?php echo $id ?>" required > <?php echo $id ?> :  <?php echo $nomPtReseau ?></option>;
+        <option value ="<?php echo $id ?>" required > <?php echo $nomPtReseau ?></option>;
 
-<?php } ?>     
+<?php }  ?>     
         </select>
 
        </select>
-        <select class="select" name="operation" required>
-                <option> -- Opération à modifier : <?php echo $operation ?> -- </option>
-                <option value = "3" selected> Mode Théorique </option>
-                <option value = "4"> Mode Réel </option>
-                <option value = "6"> Mode Inopérant </option>  
+        <select class="select" name="sousTypeOperation" required>
+                <option> -- Opération à modifier : <?php 
+                if($sousTypeOperation == 1)
+                {
+                    echo 'Théorique';
+                } 
+                elseif($sousTypeOperation == 2)
+                {
+                    echo 'Réel';
+                }
+                elseif($sousTypeOperation == 3)
+                {
+                    echo 'Inopérant';
+                } 
+                ?> -- </option>
+                <option value = "1" selected> Mode Théorique </option>
+                <option value = "2"> Mode Réel </option>
+                <option value = "3"> Mode Inopérant </option>  
         </select>
         <button class="buttonUser"type="submit"> <i id="modif" class="far fa-hand-point-right"></i> Modifier </button>
             <input type="hidden" name="afficher"  value="updateMode">
@@ -67,7 +85,7 @@ $messageUpdate = ob_get_clean();
         <?php echo $messageUpdate?>
         </div>  
    </form>
-   <?php } ?>
+        <?php } ?>
 
 </section>
 

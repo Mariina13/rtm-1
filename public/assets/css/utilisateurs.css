@@ -34,13 +34,13 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     outline: none;
-    padding: 7px;
+    padding: 10px;
     border: none;
     border-bottom: 1px solid #ddd;
     background: transparent;
     margin-bottom: 10px;
     font: 16px Arial, Helvetica, sans-serif;
-    height: 45px;
+    height: 65px;
 }
 .formLogin button
 {
@@ -90,7 +90,11 @@
     padding: 20px;
     margin: -30px -30px 30px -30px;
 }
-
+.formUtilisateur select 
+{
+    color:#005ea8;
+    text-transform:uppercase;
+}
 .formUtilisateur input.champ[type="text"],
 .formUtilisateur input[type="password"],
 .formUtilisateur select
