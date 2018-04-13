@@ -27,13 +27,13 @@ class AjaxController
 
     public function executeList(Request $objetRequest)
     {
-        if ($request->isXmlHttpRequest())
+        if ($objetRequest->isXmlHttpRequest())
         {
             $q = Doctrine_Query::create()
             ->select('id,sigep,type,type_equipement,adresse_equipement,numero_interne,sigep_virtuel,connexion,quai_defaut,data_spoti,ref_version_table,data_siv_sent')
             ->from('bornes');
 
-            $pager = $this->getPager('bornes', $q, $objetRequest->getParameter('page', $this->getPage()), $request->getParameter('iDisplayLength'));
+            $pager = $this->getPager('bornes', $q, $objetRequest->getParameter('ajax', $this->getPage()), $request->getParameter('iDisplayLength'));
 
             $aaData = array();
             $list = $pager->getResults();

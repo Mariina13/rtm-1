@@ -13,6 +13,21 @@ class BornesRepository extends ServiceEntityRepository
         parent::__construct($registry, Bornes::class);
     }
 
+    public function LireBornes($objetConnection)
+    {
+        $requeteSQL =
+<<<CODESQL
+SELECT *
+FROM bornes
+WHERE type_equipement
+CODESQL;
+
+        // http://docs.doctrine-project.org/projects/doctrine-dbal/en/latest/reference/data-retrieval-and-manipulation.html#list-of-parameters-conversion
+        $objetStatement = $objetConnection->prepare($requeteSQL);
+        $objetStatement->execute(["connexion" =>"1"]);
+
+return $objetStatement;
+    }
     public function LireListeBornesIp($objetConnection, $id)
     {
         $requeteSQL =
