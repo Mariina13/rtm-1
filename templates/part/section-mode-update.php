@@ -31,7 +31,7 @@ $messageUpdate = ob_get_clean();
         $type              = $objetBornes->getType();
     
         $objetRepository = $this->getdoctrine()->getrepository(App\Entity\Stations::class);
-        $tabResultat = $objetRepository->afficherNomStation($objetConnection, $sigep);
+        $tabResultat = $objetRepository->afficherNomStation($objetConnection, $sigep, $id);
     
         foreach($tabResultat as $tabLigne)
         {

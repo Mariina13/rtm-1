@@ -171,7 +171,7 @@ CODEHTML;
         // CONVERTIR $idUpdate EN NOMBRE
         $idUpdate = intval($idUpdate);
         
-            if (($idUpdate > 0) && ($sousTypeOperation != ""))
+            if (($idUpdate > 0) && ($sousTypeOperation != "")&& isset($_POST["id_stations"]))
             {   
                 $utilisateursId   = $objetSession->get("id");
                 
