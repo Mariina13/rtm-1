@@ -24,23 +24,26 @@ $messageUpdate = ob_get_clean();
     $objetRepository     = $this->getDoctrine()->getRepository(App\Entity\Bornes::class);
     $tabResultat         = $objetRepository->findBy(["typeEquipement" => ["0","1","2"], "connexion"=> 1]);    
     // ON A UN TABLEAU D'OBJETS DE CLASSE Bornes
-        foreach($tabResultat as $objetBornes)
+    foreach($tabResultat as $objetBornes)
+    {
+        $id                = $objetBornes->getId();
+        $sigep             = $objetBornes->getSigep();
+        $type              = $objetBornes->getType();
+    
+        $objetRepository = $this->getdoctrine()->getrepository(App\Entity\Stations::class);
+        $tabResultat = $objetRepository->afficherNomStation($objetConnection, $sigep);
+    
+        foreach($tabResultat as $tabLigne)
         {
-            $id                = $objetBornes->getId();
-            $sigep             = $objetBornes->getSigep();
-            $type              = $objetBornes->getType();
-
-    $objetRepository = $this->getDoctrine()->getRepository(App\Entity\Stations::class);
-    $objetStations  = $objetRepository->find($idUpdate);
+                extract($tabLigne);
 
     $objetRepository = $this->getDoctrine()->getRepository(App\Entity\TableOperationsUtilisateur::class);
     $objetTableOperationsUtilisateur   = $objetRepository->find($idUpdate);
 
 
-        if ($objetStations && $objetTableOperationsUtilisateur) {
+        if ($objetBornes && $objetTableOperationsUtilisateur) {
                 
             // OK ON A TROUVE UN ARTICLE POUR CET ID
-            $nomPtReseau          = $objetStations->getNomPtReseau();
             $utilisateursId       = $objetTableOperationsUtilisateur->getUtilisateursId();
             $idStations           = $objetTableOperationsUtilisateur->getIdStations();
             $sousTypeOperation    = $objetTableOperationsUtilisateur->getSousTypeOperation(); 
@@ -53,9 +56,9 @@ $messageUpdate = ob_get_clean();
 <?php
    
 ?>      
-        <option value ="<?php echo $id ?>" required > <?php echo $nomPtReseau ?></option>;
+        <option value ="<?php echo $id?>" required ><?php echo $nomPtReseau ?></option>
 
-<?php }  ?>     
+<?php } }  ?>     
         </select>
 
        </select>

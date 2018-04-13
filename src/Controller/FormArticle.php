@@ -91,12 +91,11 @@ CODEHTML;
         $idStations            = $objetRequest->get("idStations","");
 
         $operation = 2;
+        $idStations     = $_POST["id_stations"];
 
         if (isset($_POST["id_stations"]) && ($sousTypeOperation == 1))
         {
 
-        //Traitement des informations pour la table opération utilisateurs
-        $idStations     = $_POST["id_stations"];
         // on récupére l'identifiant de l'utilisateur
         $idUser         = $objetSession->get("id");
         $idStations     = $_POST["id_stations"];
@@ -164,20 +163,21 @@ CODEHTML;
     }
     function updateMode ($objetRequest, $objetConnection, $objetEntityManager, $cheminSymfony, $objetSession)
     {
+        $id                     = $objetRequest->get("id","");
         $idUpdate               = $objetRequest->get("idUpdate","");       
         $idStations             = $objetRequest->get("idStations","");
-        $operation              = $objetRequest->get("operation","");
+        $sousTypeOperation      = $objetRequest->get("sousTypeOperation","");
         
         // CONVERTIR $idUpdate EN NOMBRE
         $idUpdate = intval($idUpdate);
         
-            if (($idUpdate > 0) && ($operation != ""))
+            if (($idUpdate > 0) && ($sousTypeOperation != ""))
             {   
                 $utilisateursId   = $objetSession->get("id");
                 
-                $dateOperation    = date("Y-m-d H:i:s");
-                $operation        = $objetRequest->get("operation");
-                $idStations       = $objetRequest->get("id_stations");
+                $dateOperation     = date("Y-m-d H:i:s");
+                $sousTypeOperation = $objetRequest->get("sousTypeOperation");
+                $idStations        = $objetRequest->get("id_stations");
 
                 $idStations     = $_POST["id_stations"];
                 $idStations = implode(',' , $idStations);

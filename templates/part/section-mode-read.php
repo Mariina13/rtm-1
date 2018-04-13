@@ -35,6 +35,7 @@ error_reporting(E_ALL);
             $sousTypeOperation  = $objetTableOperationsUtilisateur->getSousTypeOperation();
             $dateOperation      = $objetTableOperationsUtilisateur->getDateOperation("d/m/Y H:i:s");
 
+            
             echo
 <<<CODEHTML
            

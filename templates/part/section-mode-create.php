@@ -7,8 +7,8 @@ error_reporting("E_ALL");
 
     <h3> Sélectionner le mode </h3>
         <form method="POST" class="formMode">
+        <option> -- Sélectionner une Borne : -- </option>
             <select size="6" class="select" name="id_stations[]" multiple>
-            <option> -- Sélectionner une Borne : -- </option>
 <?php
 
 $objetRepository     = $this->getDoctrine()->getRepository(App\Entity\Bornes::class);
@@ -20,20 +20,20 @@ foreach($tabResultat as $objetBornes)
     $sigep             = $objetBornes->getSigep();
     $type              = $objetBornes->getType();
 
-$objetRepository = $this->getdoctrine()->getrepository(App\Entity\Stations::class);
-$tabResultat = $objetRepository->afficherNomStation($objetConnection, $sigep);
+    $objetRepository = $this->getdoctrine()->getrepository(App\Entity\Stations::class);
+    $tabResultat = $objetRepository->afficherNomStation($objetConnection, $sigep);
 
-foreach($tabResultat as $tabLigne)
-{
-        extract($tabLigne);
+    foreach($tabResultat as $tabLigne)
+    {
+            extract($tabLigne);
 
 ?>      
-        <option value ="<?php echo $id ?>"> <?php echo $nomPtReseau ?> 
+        <option value ="<?php echo $idStations ?>"> <?php echo $nomPtReseau ?> 
 </option>
 <?php } } ?>
 
         </select>
-        <select class="select" name="sousTypeOperation" required>
+        <select class="select" name="sous_type_operation" required>
                 <option> -- Type d'opération -- </option>
                 <option value = "1" selected id="theorique"> Mode Théorique</option>           
                 <option value = "2" id="reel"> Mode Réel </option>
