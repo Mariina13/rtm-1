@@ -92,7 +92,6 @@
 }
 .modeCreate h3
 {
-
     background: #008efd;
     text-align:center;
     font-family: "OpenSansCondensed-Light";
@@ -124,23 +123,23 @@
     color: #FFFFFF;
     font-family: "OpenSansCondensed-Light";
     font-size: 18px;
-    margin:20px 35%;;
+    margin:20px 45%;
     padding: 8px 18px;
     text-decoration: none;
     text-transform: uppercase;
 }
 /*XXXXXXXXXXXXXXXXXX SECTION UPDATE XXXXXXXXXXXXXXXXXXXXXXX*/
-
+option{
+    margin:8px auto;
+}
 .modeUpdate
 {
     width:70%;
-    margin:3% auto;
     padding-bottom:20px;
-    padding:15px;
+    padding:10px;
 }
 .modeUpdate h2
 {
-
     background: #008efd;
     text-align:center;
     font-family: "OpenSansCondensed-Light";
@@ -154,6 +153,7 @@
 {  
     width:60%;
     margin:15px auto;
+
 }
 #labelMode
 {
@@ -162,7 +162,7 @@
     font-family: "OpenSansCondensed-Light";
 
 }
-.formModeUpdate button
+.buttonMode
 {
     cursor:pointer;
     width:30%;
@@ -175,7 +175,7 @@
     color: #FFFFFF;
     font-family: "OpenSansCondensed-Light";
     font-size: 18px;
-    margin:20px 30%;;
+    margin:20px 35%;;
     padding: 8px 18px;
     text-decoration: none;
     text-transform: uppercase;

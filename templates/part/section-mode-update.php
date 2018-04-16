@@ -67,7 +67,7 @@ $messageUpdate = ob_get_clean();
                 <option value = "2"> Mode Réel </option>
                 <option value = "3"> Mode Inopérant </option>  
         </select>
-        <button class="buttonUser"type="submit"> <i id="modif" class="far fa-hand-point-right"></i> Modifier </button>
+        <button class="buttonMode" type="submit"> <i id="modif" class="far fa-hand-point-right"></i> Modifier </button>
             <input type="hidden" name="afficher" value="updateMode">
             <input type="hidden" name="idUpdate"  value="<?php echo $idUpdate ?>">
             <input type="hidden" name="codebarre" value="updateMode">
