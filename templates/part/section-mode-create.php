@@ -6,8 +6,8 @@ error_reporting("E_ALL");
 
     <h3> Sélectionner le mode </h3>
         <form method="POST" class="formMode">
-            <select size="6" class="select" name="idStations[]" multiple>
-            <option> -- Sélectionner une Borne : -- </option>
+        <label for="borne"> Liste des bornes connectées :</label>
+            <select id="borne" size="4" class="select" name="id_stations[]" multiple>
 <?php
     $objetRepository     = $this->getDoctrine()->getRepository(App\Entity\Bornes::class);
     $tabResultat         = $objetRepository->findBy(["typeEquipement" => ["0","1","2"], "connexion"=> 1]);    
@@ -30,7 +30,6 @@ error_reporting("E_ALL");
 
         </select>
         <select class="select" name="sousTypeOperation" required>
-                <option> -- Type d'opération -- </option>
                 <option value = "1" selected id="theorique"> Mode Théorique</option>           
                 <option value = "2" id="reel"> Mode Réel </option>
                 <option value = "3" id="inoperant"> Mode Inopérant </option>  

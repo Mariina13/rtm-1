@@ -83,22 +83,20 @@ CODEHTML;
 
     function creerMode ($objetRequest, $objetConnection, $cheminSymfony, $objetSession)
     {
-        $this->objetRequest = $objetRequest;
         
         $dateOperation         = $objetRequest->get("dateOperation","");
         $operation             = $objetRequest->get("operation","");
         $sousTypeOperation     = $objetRequest->get("sousTypeOperation", "");
-        $idStations            = $objetRequest->get("idStations","");
-
+       
         $operation = 2;
 
-        $idStations     = $_POST["id_stations"];
 
         if (isset($_POST["id_stations"]) && ($sousTypeOperation == 1))
         {
 
         // on récupére l'identifiant de l'utilisateur
         $idUser         = $objetSession->get("id");
+        //ON TRANSFORME LES STATIONS EN TABLEAUX POUR TOUTES LES RECUPEREES
         $idStations     = $_POST["id_stations"];
         $idStations = implode(',' , $idStations);
         
@@ -119,8 +117,9 @@ CODEHTML;
         }
         if(isset($_POST["id_stations"]) && ($sousTypeOperation == 2))
         {
-        //Traitement des informations pour la table opération utilisateurs
+       //ON TRANSFORME LES STATIONS EN TABLEAUX POUR TOUTES LES RECUPEREES
         $idStations     = $_POST["id_stations"];
+        $idStations = implode(',' , $idStations);
         // on récupére l'identifiant de l'utilisateur
         $idUser         = $objetSession->get("id");
 
@@ -141,8 +140,9 @@ CODEHTML;
         }
         if(isset($_POST["id_stations"]) && ($sousTypeOperation == 3))
         {
-        //Traitement des informations pour la table opération utilisateurs
+       //ON TRANSFORME LES STATIONS EN TABLEAUX POUR TOUTES LES RECUPEREES
         $idStations     = $_POST["id_stations"];
+        $idStations = implode(',' , $idStations);
         // on récupére l'identifiant de l'utilisateur
         $idUser         = $objetSession->get("id");
         
@@ -165,27 +165,24 @@ CODEHTML;
     function updateMode ($objetRequest, $objetConnection, $objetEntityManager, $cheminSymfony, $objetSession)
     {
         $id                     = $objetRequest->get("id","");
-        $idUpdate               = $objetRequest->get("idUpdate","");       
-        $idStations             = $objetRequest->get("idStations","");
-        $sousTypeOperation      = $objetRequest->get("sousTypeOperation","");
-        
+        $idUpdate               = $objetRequest->get("idUpdate","");
+        $sousTypeOperation     = $objetRequest->get("sousTypeOperation", "");
+        //$sousTypeOperation      = $objetRequest->get("sousTypeOperation");
+
         // CONVERTIR $idUpdate EN NOMBRE
         $idUpdate = intval($idUpdate);
         
-            if (($idUpdate > 0) && ($sousTypeOperation != "")&& isset($_POST["id_stations"]))
+            if (isset($_POST["id_stations"]) && ($idUpdate > 0) && ($sousTypeOperation != ""))
             {   
+                $idStations     = $_POST["id_stations"];
+                 $idStations = implode(',' , $idStations);
+                 
                 $utilisateursId   = $objetSession->get("id");
                 
                 $dateOperation     = date("Y-m-d H:i:s");
-                $sousTypeOperation = $objetRequest->get("sousTypeOperation");
-                $idStations        = $objetRequest->get("id_stations");
-
-                $idStations     = $_POST["id_stations"];
-                $idStations = implode(',' , $idStations);
-
 
                 $tabLigneUpdate =   [       "id_stations"        => $idStations,
-                                            "operation"          => $operation,
+                                            "sous_type_operation" => $sousTypeOperation,
                                             "utilisateurs_id"    =>  $utilisateursId,
                                             "date_operation"     => $dateOperation                                          
                                     ];

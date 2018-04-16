@@ -83,6 +83,25 @@ CODESQL;
 return $objetStatement;
 
     }
+    public function afficherNom($objetConnection,$id)
+    {
+
+        $requeteSQL =
+<<<CODESQL
+SELECT *
+FROM stations
+WHERE id IN($id)
+
+
+CODESQL;
+
+        // http://docs.doctrine-project.org/projects/doctrine-dbal/en/latest/reference/data-retrieval-and-manipulation.html#list-of-parameters-conversion
+        $objetStatement = $objetConnection->prepare($requeteSQL);
+        $objetStatement->execute([ "id" => $id]);
+
+return $objetStatement;
+
+    }
 
 
     /*

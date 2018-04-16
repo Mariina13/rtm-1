@@ -65,7 +65,6 @@ $verifNiveau = $objetSession->get("niveau");
                 <input type="hidden" name="afficher" value="update">
                 <input type="hidden" name="idUpdate" value="<?php echo $idUpdate ?>">
                 <input type="hidden" name="codebarre" value="update">
-            </form>
             <div class="ok">
             <?php echo $messageUpdate ?>
             </div>
