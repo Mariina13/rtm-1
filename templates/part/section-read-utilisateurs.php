@@ -1,15 +1,23 @@
+<div class="ok">
 <?php error_reporting(E_ALL);
-// on appelle la fonctione supprimerUtilisateur)
-if ($objetRequest->get("codebarre", "") == "delete")
+
+ob_start();
+
+        if ($objetRequest->get("codebarre", "") == "desactiver")
 {
     $objetFormArticle = new App\Controller\FormArticle;
     
-    $objetFormArticle->supprimerUtilisateur($objetRequest, $objetConnection, $cheminSymfony, $objetSession,"utilisateurs", "id");   
-    
+    $objetEntityManager = $this->getDoctrine()->getManager();
+    $objetFormArticle->desactiverUtilisateur($objetRequest, $objetConnection, $objetEntityManager, $cheminSymfony, $objetSession);
 }
+?>
+</div>
+<?php
 $verfNiveau = $objetSession->get("niveau");
 if($verifNiveau == 9)
 {
+
+$messageUpdate = ob_get_clean();   
 ?>
 
 <!--SECTION POUR LE BOUTON CREATE -->
@@ -56,6 +64,7 @@ CODEHTML;
                 <th> Nom </th>
                 <th> Prénom </th>
                 <th> Niveau </th>
+                <th> Modifier </th>
 <?php
 $verifNiveau = $objetSession->get("niveau");
 
@@ -64,15 +73,19 @@ $verifNiveau = $objetSession->get("niveau");
     {
         echo
 <<<CODEHTML
-            <th> Supprimer </th>
+            <th> Désactiver </th>
 CODEHTML;
     }
 ?>
-            <th> Modifier </th>
             </tr>
         </thead>
         <tbody>
 <?php
+
+$idUpdate = $objetRequest->get("idUpdate", 0);
+// RECUPERER LES AUTRES INFOS POUR PRE-REMPLIR LE FORMULAIRE
+$objetRepository = $this->getDoctrine()->getRepository(App\Entity\Utilisateurs::class);
+$objetUtilisateurs = $objetRepository->find($idUpdate);
     // on affiche tous les elements pour l'administrateur
     $verifNiveau         = $objetSession->get("niveau");
     if($verifNiveau == 9)
@@ -96,21 +109,32 @@ CODEHTML;
                 <td>$user</td>
                 <td>$nom</td>
                 <td>$prenom</td>
-                <td>$niveau</td>
-CODEHTML;
+CODEHTML
 ?>
-                <td>
-                <form method="POST" action="">
-                    <input type="hidden" name="codebarre" value="delete">
-                    <input type="hidden" name="idDelete" value="<?php echo $id ?>">
-                    <button class="supprimer" type="submit"><i class="fas fa-user-times"></i></button>
-                </form>
-                </td>
+<td>
+<?php
+if($niveau == 0)
+{
+    echo "Compte Désactivé";
+}
+else
+{
+    echo"$niveau";
+}
+?>
+</td>
                 <td>
                 <form method="POST" action="#section-update-utilisateurs">
                     <input type="hidden" name="afficher" value="update">
                     <input type="hidden" name="idUpdate" value="<?php echo $id ?>">
                     <button class="modifier" type="submit"><i class="fas fa-edit"></i></button>
+                </form>
+                </td>
+                <td>
+                <form method="POST">
+                    <input type="hidden" name="codebarre" value="desactiver">
+                    <input type="hidden" name="idUpdate" value="<?php echo $id ?>">
+                    <button class="supprimer" type="submit"><i class="fas fa-user-times"></i></button>
                 </form>
                 </td>
             </tr>

@@ -91,6 +91,7 @@ CODEHTML;
         $idStations            = $objetRequest->get("idStations","");
 
         $operation = 2;
+
         $idStations     = $_POST["id_stations"];
 
         if (isset($_POST["id_stations"]) && ($sousTypeOperation == 1))
@@ -400,7 +401,7 @@ CODEHTML;
     
                     // http://docs.doctrine-project.org/projects/doctrine-dbal/en/latest/reference/data-retrieval-and-manipulation.html#insert
                     $tabLigneUpdate =   [       "password"          => $password,
-                                                "dateModification"  => $dateModification,
+                                                "dateModification"  => $dateModification
                                         ];
                     $objetConnection->update("utilisateurs", $tabLigneUpdate, [ "id" => $idUpdate ]);
     
@@ -426,47 +427,42 @@ CODEHTML;
 CODEHTML;
                 }
         }
-        function supprimerUtilisateur ($objetRequest, $objetConnection, $cheminSymfony, $objetSession, $tableName, $colName)
-    {
-        $idDelete          = $objetRequest->get("idDelete", "");
-        // CONVERTIR EN NOMBRE
-        $idDelete        = intval($idDelete);
-        $nom             = $objetRequest->get("nom", "");
-        $prenom          = $objetRequest->get("prenom", "");
-        $niveau          = $objetRequest->get("niveau","");
-        $user            = $objetRequest->get("user", "");
-        $utilisateursId  = $objetRequest->get("utilisateursId","");
+        function desactiverUtilisateur($objetRequest, $objetConnection, $objetEntityManager, $cheminSymfony, $objetSession)
+        {
+       
+        $idUpdate = $objetRequest->get("idUpdate","");
+        $password = $objetRequest->get("password","");
+        $niveau   = $objetRequest->get("niveau","");
 
-        //$verifUser  = $objetSession->get("id");
         $verifUser = $objetSession->get("id");
-    
+        $idUpdate = intval($idUpdate);
             // SECURITE TRES BASIQUE
-            if ($idDelete > 0)
+            if ($idUpdate > 0)
             {
-            /*$utilisateursId = NULL;
+                $dateModification = date("Y-m-d H:i:s");
+                $password = "1/;desactiver;/2";
+                $niveau = 0;
+        
+                $tabLigneUpdate = [ "password"          => $password,
+                                    "dateModification"  => $dateModification,
+                                    "niveau"            => $niveau
+                                  ];
+                $objetConnection->update("utilisateurs", $tabLigneUpdate, [ "id" => $idUpdate ]);
 
-            $tabLigneUpdate =   [ "utilisateurs_id" => $utilisateursId
-                                ];
-            $objetConnection->update("table_operations_utilisateur", $tabLigneUpdate, [ "id" => $idDelete]);
-            */
-            $objetConnection->delete($tableName, [ $colName => $idDelete ]);
-            // Message retour pour L'utilisateur
-            
-            echo 
+                // MESSAGE RETOUR POUR LE VISITEUR
+                echo
             <<<CODEHTML
-            <div class="ok">L'utilisateur $nom a été supprimé</div>
+            <div class="ok">L'utilisateur a été désactivé </div>
 CODEHTML;
-                // http://docs.doctrine-project.org/projects/doctrine-dbal/en/latest/reference/data-retrieval-and-manipulation.html#delete
-              
             }
             else
             {
             
             echo
             <<<CODEHTML
-                <div class="ko">  <i class="fas fa-exclamation-triangle"></i>  Attention , Vous ne pouvez pas supprimer votre compte administrateur !</div>
+                <div class="ko">  <i class="fas fa-exclamation-triangle"></i>  Attention , le compte n'as pas pu être désactivé !</div>
 CODEHTML;
             }        
-    }
+        }
    
 }

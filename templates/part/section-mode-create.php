@@ -6,7 +6,7 @@ error_reporting("E_ALL");
 
     <h3> Sélectionner le mode </h3>
         <form method="POST" class="formMode">
-            <select size="6" class="select" name="id_stations[]" multiple>
+            <select size="6" class="select" name="idStations[]" multiple>
             <option> -- Sélectionner une Borne : -- </option>
 <?php
     $objetRepository     = $this->getDoctrine()->getRepository(App\Entity\Bornes::class);
@@ -19,7 +19,7 @@ error_reporting("E_ALL");
         $type              = $objetBornes->getType();
             
         $objetRepository = $this->getdoctrine()->getrepository(App\Entity\Stations::class);
-        $tabResultat = $objetRepository->afficherNomStation($objetConnection, $sigep,$id);
+        $tabResultat = $objetRepository->afficherNomStation($objetConnection, $sigep);
         foreach($tabResultat as $tabLigne)
         {
                 extract($tabLigne);

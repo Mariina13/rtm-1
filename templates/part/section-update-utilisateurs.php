@@ -20,7 +20,6 @@ if ($objetRequest->get("codebarre", "") == "updateUser")
     $objetEntityManager = $this->getDoctrine()->getManager();
     $objetFormArticle->updatePassword($objetRequest, $objetConnection, $objetEntityManager, $cheminSymfony, $objetSession);
 }
-
 $messageUpdate = ob_get_clean();
 
 ?>
