@@ -167,7 +167,6 @@ CODEHTML;
         $id                     = $objetRequest->get("id","");
         $idUpdate               = $objetRequest->get("idUpdate","");
         $sousTypeOperation     = $objetRequest->get("sousTypeOperation", "");
-        //$sousTypeOperation      = $objetRequest->get("sousTypeOperation");
 
         // CONVERTIR $idUpdate EN NOMBRE
         $idUpdate = intval($idUpdate);
@@ -175,16 +174,16 @@ CODEHTML;
             if (isset($_POST["id_stations"]) && ($idUpdate > 0) && ($sousTypeOperation != ""))
             {   
                 $idStations     = $_POST["id_stations"];
-                 $idStations = implode(',' , $idStations);
+                $idStations = implode(',' , $idStations);
                  
                 $utilisateursId   = $objetSession->get("id");
                 
                 $dateOperation     = date("Y-m-d H:i:s");
 
-                $tabLigneUpdate =   [       "id_stations"        => $idStations,
+                $tabLigneUpdate =   [       "id_stations"         => $idStations,
                                             "sous_type_operation" => $sousTypeOperation,
-                                            "utilisateurs_id"    =>  $utilisateursId,
-                                            "date_operation"     => $dateOperation                                          
+                                            "utilisateurs_id"     =>  $utilisateursId,
+                                            "date_operation"      => $dateOperation                                          
                                     ];
                 $objetConnection->update("table_operations_utilisateur", $tabLigneUpdate,["id" => $idUpdate ]);
 
@@ -206,43 +205,41 @@ CODEHTML;
 
     function updateMessage ($objetRequest, $objetConnection, $objetEntityManager, $cheminSymfony, $objetSession)
     {
+        $id                     = $objetRequest->get("id","");
         $idUpdate               = $objetRequest->get("idUpdate","");       
-        $idStations             = $objetRequest->get("idStations","");       
+        $idInterne              = $objetRequest->get("idInterne",""); 
+        $sousTypeOperation     = $objetRequest->get("sousTypeOperation", "");     
         $texte                  = $objetRequest->get("texte","");
-        $operation              = $objetRequest->get("operation","");
-        $messageAnnule          = $objetRequest->get("messageAnnule","");
-        $typeMessagerie         = $objetRequest->get("typeMessagerie", "");
-        
-        // CONVERTIR $idUpdate EN NOMBRE
+
         $idUpdate = intval($idUpdate);
         
-            if (($idUpdate > 0) && ($texte != "") && ($operation != ""))
+            if (isset($_POST["id_stations"]) && ($idUpdate > 0) && ($texte != ""))
             {   
-                
+                $idStations     = $_POST["id_stations"];
+                $idStations = implode(',' , $idStations);
+
+                $idInterne = $idStations.$texte ;
                 
                 $utilisateursId   = $objetSession->get("id");
                 
+                $sousTypeOperation = 1;
                 $dateOperation    = date("Y-m-d H:i:s");
-                $operation        = $objetRequest->get("operation");
-                $typeMessagerie = 2;
-                $idStations       = $objetRequest->get("id_stations");
-
-                //$idStations     = $_POST["id_stations"];
-                $idStations = implode(',' , $idStations);
+                $operation        = 5;
 
                 $dateEnvoi = date("Y-m-d H:i:s");
                 
-                $tabLigneUpdate =   [       "id_stations"        => $idStations,
-                                            "operation"          => $operation,
-                                            "utilisateurs_id"    =>  $utilisateursId,
-                                            "date_operation"     => $dateOperation,
-                                            "type_messagerie"    => $typeMessagerie                                         
+                $tabLigneUpdate =   [       "id_stations"         => $idStations,
+                                            "operation"           => $operation,
+                                            "utilisateurs_id"     => $utilisateursId,
+                                            "date_operation"      => $dateOperation,
+                                            "sous_type_operation" => $sousTypeOperation                                        
                                     ];
                 $objetConnection->update("table_operations_utilisateur", $tabLigneUpdate,["id" => $idUpdate ]);
 
                 $tabLigneUpdate =   [       "id_stations"        => $idStations,
                                             "texte"              => $texte,
-                                            "date_envoi"         => $dateEnvoi                                            
+                                            "date_envoi"         => $dateEnvoi,
+                                            "id_interne"         => $idInterne                                        
                                     ];
                 $objetConnection->update("messagerie_commerciale ", $tabLigneUpdate,["id" => $idUpdate]);
                
@@ -268,8 +265,7 @@ CODEHTML;
             $operation              = $objetRequest->get("operation","");
             $dateOperation          = $objetRequest->get("dateOperation","");
             $messageAnnule          = $objetRequest->get("messageAnnule","");
-            $dateAnnulation         = $objetRequest->get("dateAnnulation","");
-            $typeMessagerie         = $objetRequest->get("typeMessagerie", "");
+           
             
             
             // CONVERTIR $idUpdate EN NOMBRE
@@ -288,8 +284,6 @@ CODEHTML;
 
                     $messageEnvoye = "0";
                     $messageAnnule = 1 ;
-
-                    $typeMessagerie = 2;
 
                     $tabLigneUpdate =   [       "utilisateurs_id"       => $utilisateursId,
                                                 "id_stations"           => $idStations,

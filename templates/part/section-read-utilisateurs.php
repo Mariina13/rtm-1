@@ -33,7 +33,7 @@ $messageUpdate = ob_get_clean();
 <?php } ?>
 
 <hr>
-
+<?php echo $messageUpdate ?>
 <!--SECTION POUR MODIFIER ET SUPPRIMER + AFFICHAGE DES DONNEES CELON LE NIVEAU -->
 <section>
     <table id="tableId" class="read" data-order='[[ 1, "asc" ]]' data-page-length='5'>

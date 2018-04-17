@@ -16,62 +16,46 @@ if ($objetRequest->get("codebarre", "") == "updateMessage")
 $messageUpdate = ob_get_clean();
 ?>
 
-
+    <form class="messageUpdate" method="POST">
+        <select class="select" name = "id_stations[]" multiple required>
 
 <?php
+
     $idUpdate = $objetRequest->get("idUpdate", 0);
 
     $objetRepository = $this->getDoctrine()->getRepository(App\Entity\MessagerieCommerciale::class);
     $objetMessagerie = $objetRepository->find($idUpdate);
 
-    $objetRepository = $this->getDoctrine()->getRepository(App\Entity\Stations::class);
-    $objetStations  = $objetRepository->find($idUpdate);
+    if ($objetMessagerie)
+    {
+        $idStations       = $objetMessagerie->getIdStations();
+        $texte            = $objetMessagerie->getTexte();
 
-    $objetRepository = $this->getDoctrine()->getRepository(App\Entity\TableOperationsUtilisateur::class);
-    $objetTableOperationsUtilisateur   = $objetRepository->find($idUpdate);
+        $id = $idStations;
 
-        if (($objetMessagerie && $objetStations) && $objetTableOperationsUtilisateur) {
-                
-            // OK ON A TROUVE UN ARTICLE POUR CET ID
-            $idStations       = $objetMessagerie->getIdStations();
-            $texte            = $objetMessagerie->getTexte();
-            $nomPtReseau      = $objetStations->getNomPtReseau();
-            $utilisateursId   = $objetTableOperationsUtilisateur->getUtilisateursId();
+        $objetRepository = $this->getdoctrine()->getrepository(App\Entity\Stations::class);
+        $tabResultat = $objetRepository->afficherNom($objetConnection, $id);
+
+            foreach($tabResultat as $tabLigne)
+            {     
+                extract($tabLigne);
 
 ?>
-    
-    <form class="messageUpdate">
-        <select class="select" name = "id_stations[]" multiple required>
-        <option required> -- Sélectionner une autre station : <?php echo $nomPtReseau ?>-- </option>
-<?php
-    $objetRepository = $this->getdoctrine()->getrepository(App\Entity\Stations::class);
-    $tabResultat = $objetRepository->afficherNomStation($objetConnection);
-            
-        foreach($tabResultat as $tabLigne)
-        {
-            extract($tabLigne);
-?>      
-        <option value ="<?php echo $id ?>" required > <?php echo $id ?> :  <?php echo $nomPtReseau ?></option>;
-
-<?php } ?>     
+        <option required> -- Sélectionner une autre station : <?php echo $nomPtReseau ?>-- </option>    
+        <option value ="<?php echo $id ?>" required > <?php echo $nomPtReseau ?></option>;  
         </select>
 
         <select class="select" name="operation">
-                <option selected> Modfification - Message </option>
+                <option value="5" selected> Modfification - Message </option>
         </select>
-        <textarea name="texte" placeholder="Votre message" required > <?php echo $texte?> </textarea>
-        <form>
+        <textarea name="texte" required > <?php echo $texte?> </textarea>
             <button class="buttonUser" type="submit"> <i id="modif" class="far fa-hand-point-right"></i> Modifier </button>
             <input type="hidden" name="afficher" value="updateMessage">
-            <input type="hidden" name="idUpdate" value="<?php echo $idUpdate ?>">
+            <input type="hidden" name="idUpdate" value="<?php echo $idUpdate ?>"/>
             <input type="hidden" name="codebarre" value="updateMessage">
-        </form>
-        <div class="ok">
         <?php echo $messageUpdate?>
-        </div>  
    </form>
-
 </section>
 
-<?php } ?>
+<?php } }?>
 <hr>

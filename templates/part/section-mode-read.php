@@ -41,9 +41,23 @@ error_reporting(E_ALL);
            
             <tr>
                 <td>$dateOperation</td>
-                <td>$idStations</td>                
+CODEHTML;
+?>
+<?php
+        $id = $idStations;
+
+        $objetRepository = $this->getdoctrine()->getrepository(App\Entity\Stations::class);
+        $tabResultat = $objetRepository->afficherNom($objetConnection, $id);
+
+            foreach($tabResultat as $tabLigne)
+            {     
+                extract($tabLigne);
+                echo
+<<<CODEHTML
+                <td>$nomPtReseau</td>                
                               
 CODEHTML;
+            }
 ?>          
 <td>
 <?php

@@ -28,46 +28,60 @@
         <tbody>
 <?php
 
-    $nomPtReseau = $objetRequest->get("nomPtReseau","");
-
-        $objetRepository = $this->getDoctrine()->getRepository(App\Entity\MessagerieCommerciale::class);
-        $tabResultat     = $objetRepository->findBy(["messageEnvoye" => 1], ["dateEnvoi" => "DESC"]);  
+    $objetRepository = $this->getDoctrine()->getRepository(App\Entity\MessagerieCommerciale::class);
+    $tabResultat     = $objetRepository->findBy(["messageEnvoye" => 1], ["dateEnvoi" => "DESC"]);  
+    
+    
+    foreach($tabResultat as $objetMessagerieCommerciale) 
+    {
         
-        
-        foreach($tabResultat as $objetMessagerieCommerciale) 
-        {
-           
-            $id                 = $objetMessagerieCommerciale->getId();
-            $idStations         = $objetMessagerieCommerciale->getIdStations();
-            $texte              = $objetMessagerieCommerciale->getTexte();
-            $messageEnvoye      = $objetMessagerieCommerciale->getMessageEnvoye();
-            $dateEnvoi          = $objetMessagerieCommerciale->getDateEnvoi("d/m/Y H:i:s");
+        $idMessage          = $objetMessagerieCommerciale->getId();
+        $idStations         = $objetMessagerieCommerciale->getIdStations();
+        $texte              = $objetMessagerieCommerciale->getTexte();
+        $messageEnvoye      = $objetMessagerieCommerciale->getMessageEnvoye();
+        $dateEnvoi          = $objetMessagerieCommerciale->getDateEnvoi("d/m/Y H:i:s");
 
-            echo
-            <<<CODEHTML
-            <tr>
-                <td>$dateEnvoi</td>
-                <td>$idStations</td>
-                <td>$texte</td>
-                <td>$messageEnvoye</td>             
+        echo
+        <<<CODEHTML
+        <tr>
+            <td>$dateEnvoi</td>
+CODEHTML;
+?>
+<?php
+        $id = $idStations;
+
+        $objetRepository = $this->getdoctrine()->getrepository(App\Entity\Stations::class);
+        $tabResultat = $objetRepository->afficherNom($objetConnection, $id);
+
+            foreach($tabResultat as $tabLigne)
+            {     
+                extract($tabLigne);
+                echo
+<<<CODEHTML
+                <td>$nomPtReseau</td>                
+                              
+CODEHTML;
+            }
+?>
+                <td><?php echo $texte ?></td>
+                <td><?php echo $messageEnvoye ?></td>        
                 <td>
                 <form method="POST" action="#section-messagerie-update">
                     <input type="hidden" name="afficher" value="updateMessage">
-                    <input type="hidden" name="idUpdate" value="<?php echo $id?>">
+                    <input type="hidden" name="idUpdate" value="<?php echo $idMessage ?>">
                     <button class="modif" type="submit"><i class="far fa-file-alt"></i></button>
                 </form>
                 </td>
                 <td>
                 <form method="POST" action="#section-messagerie-annule">
                     <input type="hidden" name="afficher" value="updateMessageAnnule">
-                    <input type="hidden" name="idUpdate" value="<?php echo $id ?>">
+                    <input type="hidden" name="idUpdate" value="<?php echo $idMessage ?>">
                     <button class="modif" type="submit"><i class="far fa-times-circle"></i></button>
                 </form>
                 </td>
             </tr>
-CODEHTML;
-    }
-?>
+
+<?php } ?>
         </tbody>
     <table>
    

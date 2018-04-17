@@ -14,7 +14,7 @@
     }
     .formAjouter
     {
-        width:18%;
+        width:22%;
         font-size:14px;
     }
     .formMessage
@@ -55,7 +55,7 @@
     
     .formAjouter
     {
-        width:24%;
+        width:28% !important;
         font-size:14px;
     }
     .formMessage
