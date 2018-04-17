@@ -265,31 +265,29 @@ CODEHTML;
             $operation              = $objetRequest->get("operation","");
             $dateOperation          = $objetRequest->get("dateOperation","");
             $messageAnnule          = $objetRequest->get("messageAnnule","");
+            $sousTypeOperation     = $objetRequest->get("sousTypeOperation", "");
            
-            
-            
             // CONVERTIR $idUpdate EN NOMBRE
             $idUpdate = intval($idUpdate);
             //$operation = intval($operation);
         
                 if (($idUpdate > 0) && ($operation == 5))
                 {   
-                    
-                    $idStations       = $objetRequest->get("id_stations");
+                    $sousTypeOperation = 2;
+                    $dateAnnulation    = date("Y-m-d H:i:s");
+                    $dateOperation     = date("Y-m-d H:i:s");
 
-                    $dateAnnulation = date("Y-m-d H:i:s");
-                    $dateOperation = date("Y-m-d H:i:s");
+                    $utilisateursId  = $objetSession->get("id");
 
-                    $utilisateursId           = $objetSession->get("id");
-
-                    $messageEnvoye = "0";
+                    $messageEnvoye = 0;
                     $messageAnnule = 1 ;
 
                     $tabLigneUpdate =   [       "utilisateurs_id"       => $utilisateursId,
                                                 "id_stations"           => $idStations,
                                                 "operation"             => $operation,
                                                 "utilisateurs_id"       => $utilisateursId,
-                                                "date_operation"        => $dateOperation                                          
+                                                "date_operation"        => $dateOperation,
+                                                "sous_type_operation" => $sousTypeOperation                                        
                                         ];
                     $objetConnection->update("table_operations_utilisateur", $tabLigneUpdate,["id" => $idUpdate ]);
 
@@ -305,8 +303,6 @@ CODEHTML;
                 <<<CODEHTML
                 <div class="ok">Votre message a été annulé.</div>
 CODEHTML;
-                
-                
                 }
                 else
                 {
