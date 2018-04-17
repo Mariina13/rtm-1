@@ -29,7 +29,7 @@ error_reporting(E_ALL);
         // on parcours la BDD pour extraire les informations.
         foreach($tabResultat as $objetTableOperationsUtilisateur) 
         {
-            $idMode                 = $objetTableOperationsUtilisateur->getId();
+           // $idMode                 = $objetTableOperationsUtilisateur->getId();
             $idStations         = $objetTableOperationsUtilisateur->getIdStations();
             $operation          = $objetTableOperationsUtilisateur->getOperation();
             $sousTypeOperation  = $objetTableOperationsUtilisateur->getSousTypeOperation();
@@ -78,7 +78,7 @@ CODEHTML;
                 <td>
                 <form method="POST" action="#section-mode-update">
                     <input type="hidden" name="afficher" value="updateMode">
-                    <input type="hidden" name="idUpdate" value="<?php echo $idMode?>">
+                    <input type="hidden" name="idUpdate" value="<?php echo $operation?>">
                     <button class="modif" type="submit"><i class="fas fa-cog"></i></button>
                 </form>
                 </td>

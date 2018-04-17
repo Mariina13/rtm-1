@@ -41,7 +41,7 @@ class FormArticle
 
         $idStations = $_POST["id_stations"];
         $idStations = implode(',' , $idStations);
-        
+        $operation = 5;
         $idInterne = $idStations.$texte ;
 
         // on récupére l'identifiant de l'utilisateur
@@ -87,10 +87,9 @@ CODEHTML;
         $dateOperation         = $objetRequest->get("dateOperation","");
         $operation             = $objetRequest->get("operation","");
         $sousTypeOperation     = $objetRequest->get("sousTypeOperation", "");
-       
         $operation = 2;
 
-
+        //$idMode = 1;
         if (isset($_POST["id_stations"]) && ($sousTypeOperation == 1))
         {
 
@@ -164,10 +163,12 @@ CODEHTML;
     }
     function updateMode ($objetRequest, $objetConnection, $objetEntityManager, $cheminSymfony, $objetSession)
     {
-        $id                     = $objetRequest->get("id","");
-        $idUpdate               = $objetRequest->get("idUpdate","");
+        $mode                = $objetRequest->get("mode","");
+        $idUpdate              = $objetRequest->get("idUpdate","");
         $sousTypeOperation     = $objetRequest->get("sousTypeOperation", "");
+        $operation             = $objetRequest->get("operation","");
 
+        //$mode = 1;
         // CONVERTIR $idUpdate EN NOMBRE
         $idUpdate = intval($idUpdate);
         
@@ -175,7 +176,8 @@ CODEHTML;
             {   
                 $idStations     = $_POST["id_stations"];
                 $idStations = implode(',' , $idStations);
-                 
+                
+                
                 $utilisateursId   = $objetSession->get("id");
                 
                 $dateOperation     = date("Y-m-d H:i:s");
@@ -185,7 +187,7 @@ CODEHTML;
                                             "utilisateurs_id"     =>  $utilisateursId,
                                             "date_operation"      => $dateOperation                                          
                                     ];
-                $objetConnection->update("table_operations_utilisateur", $tabLigneUpdate,["id" => $idUpdate ]);
+                $objetConnection->update("table_operations_utilisateur", $tabLigneUpdate,["operation" => $idUpdate ]);
 
                 echo 
                 <<<CODEHTML
@@ -205,10 +207,11 @@ CODEHTML;
 
     function updateMessage ($objetRequest, $objetConnection, $objetEntityManager, $cheminSymfony, $objetSession)
     {
-        $id                     = $objetRequest->get("id","");
+        $idMessage              = $objetRequest->get("idMessage","");
         $idUpdate               = $objetRequest->get("idUpdate","");       
-        $idInterne              = $objetRequest->get("idInterne",""); 
-        $sousTypeOperation     = $objetRequest->get("sousTypeOperation", "");     
+        $idInterne              = $objetRequest->get("idInterne","");
+        $operation              = $objetRequest->get("operation","");
+        $sousTypeOperation      = $objetRequest->get("sousTypeOperation", "");     
         $texte                  = $objetRequest->get("texte","");
 
         $idUpdate = intval($idUpdate);
@@ -217,6 +220,8 @@ CODEHTML;
             {   
                 $idStations     = $_POST["id_stations"];
                 $idStations = implode(',' , $idStations);
+                
+                $operation = 5;
 
                 $idInterne = $idStations.$texte ;
                 
@@ -228,12 +233,11 @@ CODEHTML;
                 $dateEnvoi = date("Y-m-d H:i:s");
                 
                 $tabLigneUpdate =   [       "id_stations"         => $idStations,
-                                            "operation"           => $operation,
                                             "utilisateurs_id"     => $utilisateursId,
                                             "date_operation"      => $dateOperation,
                                             "sous_type_operation" => $sousTypeOperation                                        
                                     ];
-                $objetConnection->update("table_operations_utilisateur", $tabLigneUpdate,["id" => $idUpdate ]);
+                $objetConnection->update("table_operations_utilisateur", $tabLigneUpdate,["operation" => $idUpdate ]);
 
                 $tabLigneUpdate =   [       "id_stations"        => $idStations,
                                             "texte"              => $texte,

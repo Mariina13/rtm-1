@@ -58,7 +58,7 @@ $messageUpdate = ob_get_clean();
                 <?php echo $messageUpdate?>
                 </div>  
 
-<?php } }?>
+<?php } } ?>
     </form>
 </section>
 <hr>

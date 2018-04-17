@@ -56,9 +56,11 @@ $messageUpdate = ob_get_clean();
             <input type="hidden" name="afficher" value="updateMessage">
             <input type="hidden" name="idUpdate" value="<?php echo $idUpdate ?>"/>
             <input type="hidden" name="codebarre" value="updateMessage">
+            <div class="ok">
         <?php echo $messageUpdate?>
+        </div>
    </form>
 </section>
 
-<?php } }?>
+<?php } } ?>
 <hr>
