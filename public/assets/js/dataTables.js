@@ -1,3 +1,4 @@
+window.setInterval(1000);
 $(document).ready(function() {
     var table = $('#tableIp').DataTable( {
 
@@ -30,17 +31,7 @@ $(document).ready(function() {
             }
         },
 
-        
-       /* "bStateSave": true,
-        "sPaginationType": "full_numbers",
-        "bProcessing": true,
-        "bServerSide": true,
-        ajax: "ajax"*/
     } );
-     
-    /*setInterval( function () {
-        table.ajax.reload();
-    }, 30000 );*/
     $('#tableIp tbody').on( 'click', 'tr', function () {
         if ( $(this).hasClass('selected') ) {
             $(this).removeClass('selected');
@@ -176,4 +167,3 @@ $(document).ready(function() {
         }
     });
 });
-

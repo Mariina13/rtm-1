@@ -61,4 +61,3 @@ $("#menu li").click(function(){
         // Hide it AFTER the action was triggered
         $("#menu").hide(100);
   });
-  
