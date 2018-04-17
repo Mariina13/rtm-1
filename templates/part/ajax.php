@@ -1,4 +1,7 @@
-<?php error_reporting(E_ALL); ?>
+<?php error_reporting(E_ALL); 
+require_once("$cheminPart/section-menu.php");
+require_once("$cheminPart/section-parametrage.php");
+?>
 
 <section>
 <!-- ------------------------------------- -->
