@@ -14,7 +14,7 @@ $messageUpdate = ob_get_clean();
 ?>
 <?php
 $objetRepository     = $this->getDoctrine()->getRepository(App\Entity\Bornes::class);
-$tabResultat         = $objetRepository->findBy(["typeEquipement" => "0"]);    
+$tabResultat         = $objetRepository->findBy(["typeEquipement" => ["0","1","2"]]);    
 // ON A UN TABLEAU D'OBJETS DE CLASSE Bornes
 foreach($tabResultat as $objetBornes)
 {
@@ -22,7 +22,7 @@ foreach($tabResultat as $objetBornes)
     $sigep             = $objetBornes->getSigep();
 
 $objetRepository2     = $this->getDoctrine()->getRepository(App\Entity\Stations::class);
-$tabResultat = $objetRepository2->afficherNomBornesIp($objetConnection, $sigep);
+$tabResultat = $objetRepository2->afficherNomStation($objetConnection, $sigep);
 foreach($tabResultat as $tabLigne)
 { 
     extract($tabLigne);
