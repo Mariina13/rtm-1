@@ -1,15 +1,5 @@
-// Affiche et Masque la div de bienvenue
-
-$(function (){
-	console.log("ok");
-	//$('#identite').fadeOut(1000,'swing');
-	$(".bienvenue").fadeIn(2000);
-	$(".bienvenue").fadeOut(3000);
-});
 
 // Pour afficher et enlever la div error
-
-
 $('form').on("submit", function(evenement){
 	
 	//1. Récupérer la valeur de l'input password

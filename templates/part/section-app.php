@@ -5,10 +5,6 @@ error_reporting(E_ALL);
 $verifNom = $objetSession->get("nom");
 $verifPrenom = $objetSession->get("prenom");
 
-if ($objetRequest->get("afficher", "") == "updateParametre")
-{
-    require_once("$cheminPart/section-parametrage.php");
-}   
 
 ?>
 <h4 class="bienvenue">Bienvenue <?php echo $verifPrenom?> <?php echo $verifNom ?></h4>

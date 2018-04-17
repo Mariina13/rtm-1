@@ -1,3 +1,9 @@
+/* FERME LA DIV PARAMETRAGE*/
+
+$( "#fermer" ).on( "click", function( event ) {
+    $( event.target ).closest( "#parametrage" )
+});
+
 /* AFFICHE LE MENU CONTEXTUEL */
 $("td .modif").bind("contextmenu", function (event) {
     var x = $(this).attr("id");
@@ -16,6 +22,7 @@ $(document).on("click", function (e){
         // Hide it
         $("#menu").hide(100);
     }
+
 });
 // Fonction du menu
 $("#menu li").click(function(){
@@ -36,9 +43,4 @@ $("#menu li").click(function(){
         // Hide it AFTER the action was triggered
         $("#menu").hide(100);
   });
-  /*$.ajax({
-    url : "frontalsiv",
-    type :"GET",
-    data : "stations" + id,
-    dataType : "html"
-});*/
+  

@@ -9,22 +9,26 @@ if ($objetRequest->get("codebarre", "") == "updateParametre")
     $objetEntityManager = $this->getDoctrine()->getManager();
     $objetFormArticle->updateParametre($objetRequest, $objetConnection, $objetEntityManager, $cheminSymfony, $objetSession);
 }
+$messageUpdate = ob_get_clean();
 
+?>
+<?php
 $objetRepository     = $this->getDoctrine()->getRepository(App\Entity\Bornes::class);
-$tabResultat         = $objetRepository->findBy(["typeEquipement" => ["0","1","2"]]);    
+$tabResultat         = $objetRepository->findBy(["typeEquipement" => "0"]);    
 // ON A UN TABLEAU D'OBJETS DE CLASSE Bornes
 foreach($tabResultat as $objetBornes)
 {
     $id                = $objetBornes->getId();
     $sigep             = $objetBornes->getSigep();
 
-    $objetRepository2     = $this->getDoctrine()->getRepository(App\Entity\Stations::class);
-    $tabResultat = $objetRepository2->afficherNom($objetConnection, $sigep);
-    foreach($tabResultat as $tabLigne)
-    { 
-        extract($tabLigne);
-?>
+$objetRepository2     = $this->getDoctrine()->getRepository(App\Entity\Stations::class);
+$tabResultat = $objetRepository2->afficherNomBornesIp($objetConnection, $sigep);
+foreach($tabResultat as $tabLigne)
+{ 
+    extract($tabLigne);
 
+
+?>
 <div id ="parametrage">
     <div class="titre">
         <button class="close" id="fermer"> X </button>
@@ -64,8 +68,8 @@ foreach($tabResultat as $objetBornes)
          
         <button id ="fermer1" type="submit">Appliquer</button>
         <input type="hidden" name="codebarre" value="createParametre">
-        <input type="hidden" name="id_stations" value="<?php echo $id?>">
-         
+        <input type="hidden" name="id_stations" value="">
+        <div class="ok">
 <?php
 
 if ($objetRequest->get("codebarre", "") == "createParametre")
@@ -75,12 +79,11 @@ if ($objetRequest->get("codebarre", "") == "createParametre")
      $objetTraitementForm->traiterParametre($objetRequest, $objetConnection, $cheminSymfony, $objetSession);
 }
 
-
-
 ?>
+        </div>
         </form>
     </div>
 
-<?php  }}?>
+<?php }} ?>
 
 
