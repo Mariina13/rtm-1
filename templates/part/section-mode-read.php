@@ -24,12 +24,12 @@ error_reporting(E_ALL);
 <?php
 
         $objetRepository = $this->getDoctrine()->getRepository(App\Entity\TableOperationsUtilisateur::class);
-        $tabResultat     = $objetRepository->findBy(["sousTypeOperation" => ["1","2","3"]], ["dateOperation" => "DESC"]);    
+        $tabResultat     = $objetRepository->findBy(["operation" => 2], ["dateOperation" => "DESC"]);    
 
         // on parcours la BDD pour extraire les informations.
         foreach($tabResultat as $objetTableOperationsUtilisateur) 
         {
-            $id                 = $objetTableOperationsUtilisateur->getId();
+            $idMode                 = $objetTableOperationsUtilisateur->getId();
             $idStations         = $objetTableOperationsUtilisateur->getIdStations();
             $operation          = $objetTableOperationsUtilisateur->getOperation();
             $sousTypeOperation  = $objetTableOperationsUtilisateur->getSousTypeOperation();
@@ -78,7 +78,7 @@ CODEHTML;
                 <td>
                 <form method="POST" action="#section-mode-update">
                     <input type="hidden" name="afficher" value="updateMode">
-                    <input type="hidden" name="idUpdate" value="<?php echo $id?>">
+                    <input type="hidden" name="idUpdate" value="<?php echo $idMode?>">
                     <button class="modif" type="submit"><i class="fas fa-cog"></i></button>
                 </form>
                 </td>

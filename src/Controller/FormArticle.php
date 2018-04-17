@@ -224,7 +224,6 @@ CODEHTML;
                 
                 $sousTypeOperation = 1;
                 $dateOperation    = date("Y-m-d H:i:s");
-                $operation        = 5;
 
                 $dateEnvoi = date("Y-m-d H:i:s");
                 
@@ -283,7 +282,6 @@ CODEHTML;
                     $messageAnnule = 1 ;
 
                     $tabLigneUpdate =   [       "utilisateurs_id"       => $utilisateursId,
-                                                "id_stations"           => $idStations,
                                                 "operation"             => $operation,
                                                 "utilisateurs_id"       => $utilisateursId,
                                                 "date_operation"        => $dateOperation,
@@ -291,9 +289,7 @@ CODEHTML;
                                         ];
                     $objetConnection->update("table_operations_utilisateur", $tabLigneUpdate,["id" => $idUpdate ]);
 
-                    $tabLigneUpdate =   [       "id_stations"       => $idStations,
-                                                "date_annulation"   => $dateAnnulation,
-                                                "type_messagerie"   => $typeMessagerie,
+                    $tabLigneUpdate =   [       "date_annulation"   => $dateAnnulation,
                                                 "message_envoye"    => $messageEnvoye, 
                                                 "message_annule"    => $messageAnnule                                          
                                         ];

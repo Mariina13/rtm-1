@@ -25,9 +25,12 @@ $messageUpdate = ob_get_clean();
 
     $objetRepository = $this->getDoctrine()->getRepository(App\Entity\MessagerieCommerciale::class);
     $objetMessagerie = $objetRepository->find($idUpdate);
+    $objetRepository = $this->getDoctrine()->getRepository(App\Entity\TableOperationsUtilisateur::class);
+    $objetOperationsUtilisateur = $objetRepository->find($idUpdate);
 
-    if ($objetMessagerie)
+    if ($objetMessagerie && $objetOperationsUtilisateur)
     {
+        $id      = $objetOperationsUtilisateur->getId();
         $idStations       = $objetMessagerie->getIdStations();
         $texte            = $objetMessagerie->getTexte();
 
