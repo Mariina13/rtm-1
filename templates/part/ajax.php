@@ -3,6 +3,7 @@ require_once("$cheminPart/section-menu.php");
 require_once("$cheminPart/section-parametrage.php");
 ?>
 
+ <div class="ok"><?php echo $messageUpdate?></div>
 <section>
 <!-- ------------------------------------- -->
 <!-- ------------ BORNES IP -------------- -->

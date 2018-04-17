@@ -59,22 +59,30 @@ CODEHTML;
 CODEHTML;
             }
 ?>          
-<td>
+
 <?php
 //CHANGE EN CHAINE DE CARACTERE
     if($sousTypeOperation == 1)
     {
-        echo"Théorique";
+        echo
+<<<CODEHTML
+    <td id="theorique">Théorique</td>
+CODEHTML;
     }
     if($sousTypeOperation == 2){
-        echo"Réel";
+        echo
+        <<<CODEHTML
+    <td id="reel">Réel</td>
+CODEHTML;
     }
     if($sousTypeOperation == 3){
-        echo"Inopérant";
+        echo
+        <<<CODEHTML
+    <td id="inoperant">Inopérant</td>
+CODEHTML;
     }
 ?>
 
-</td>
                 <td>
                 <form method="POST" action="#section-mode-update">
                     <input type="hidden" name="afficher" value="updateMode">

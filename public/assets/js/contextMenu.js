@@ -1,3 +1,21 @@
+//CHANGER DE COULEUR LES MODES
+$("td#theorique").css({
+    "background-color": "#ffd700",
+    "color" : "#005ea8",
+    "text-transform" : "uppercase"
+});
+$("td#reel").css({
+    "background-color": "#005ea8",
+    "color" : "#FAF7F7",
+    "text-transform" : "uppercase"
+});
+$("td#inoperant").css({
+    "background-color": "red",
+    "color" : "#FAF7F7",
+    "text-transform" : "uppercase"
+});
+
+
 /* FERME LA DIV PARAMETRAGE*/
 
 $( "#fermer" ).on( "click", function( event ) {

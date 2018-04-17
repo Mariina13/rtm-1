@@ -37,10 +37,10 @@ foreach($tabResultat as $tabLigne)
          <form id="parametre" method ="POST">
  
         <label for="version"> Version des paramétres : </label>
-        <input id="version" type="text" name="version" value="" required/>
+        <input id="version" type="text" name="version" value="1" required/>
      
         <label for="approche"> Seuil approche véhicule : </label>
-        <input id="approche" type="text" name="seuilApprocheVehicule" value = "" required/>
+        <input id="approche" type="text" name="seuilApprocheVehicule" value = "1200" required/>
      
         <label for="mode"> Mode Aff Rupture Comm : </label>
         <select id="mode" name="modeAffRuptureCom" required>
@@ -51,7 +51,7 @@ foreach($tabResultat as $tabLigne)
          </select>
      
          <label for="seuil">Seuil det. Rupture Com :</label>
-        <input id="seuil" type="text" name="seuilDetRuptureCom" value="" required/>
+        <input id="seuil" type="text" name="seuilDetRuptureCom" value="120" required/>
      
          <label for="fonctionnement">Mode de fonctionnement : </label>
          <select id="fonctionnement" name="modeDeFonctionnement">
@@ -61,7 +61,7 @@ foreach($tabResultat as $tabLigne)
          </select>
      
         <label for="maintien"> Seuil de maintien : </label>
-        <input id="maintien" type="text" name="seuilDeMaintien" value="" required/>
+        <input id="maintien" type="text" name="seuilDeMaintien" value="10" required/>
      
         <label for="prox">Texte Prox. Véhicule :</label>
         <input id="prox" type = "text" name ="texteProxVehicule" value="" required/>

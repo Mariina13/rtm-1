@@ -30,9 +30,9 @@ error_reporting("E_ALL");
 
         </select>
         <select class="select" name="sousTypeOperation" required>
-                <option value = "1" selected id="theorique"> Mode Théorique</option>           
-                <option value = "2" id="reel"> Mode Réel </option>
-                <option value = "3" id="inoperant"> Mode Inopérant </option>  
+                <option value = "1" selected> Mode Théorique</option>           
+                <option value = "2" > Mode Réel </option>
+                <option value = "3"> Mode Inopérant </option>  
         </select>
         <button type="submit"> Valider <i id="modifCreer" class="fas fa-check"></i></button>
             <input type="hidden" name="afficher" value="modeCreate">
