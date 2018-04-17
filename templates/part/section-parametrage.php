@@ -68,10 +68,10 @@ foreach($tabResultat as $tabLigne)
          
         <button id ="fermer1" type="submit">Appliquer</button>
         <input type="hidden" name="codebarre" value="createParametre">
-        <input type="hidden" name="id_stations" value="">
+        <input type="hidden" name="id_stations" value="<?php echo $id ?>">
         <div class="ok">
 <?php
-
+}
 if ($objetRequest->get("codebarre", "") == "createParametre")
 {       
      $objetTraitementForm = new App\Controller\TraitementForm;
@@ -84,6 +84,6 @@ if ($objetRequest->get("codebarre", "") == "createParametre")
         </form>
     </div>
 
-<?php }} ?>
+<?php } ?>
 
 

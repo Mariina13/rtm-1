@@ -210,7 +210,7 @@ CODEHTML;
                     <form method="POST">
                         <input type="hidden" name="id_stations" value="$id"/>
                         <button class="modif" id="$id"  type="button"><i class="far fa-plus-square"></i></button>
-                    </form>
+                        </form>
                     </td>
 CODEHTML;
 ?>

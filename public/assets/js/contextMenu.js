@@ -1,7 +1,7 @@
 /* FERME LA DIV PARAMETRAGE*/
 
 $( "#fermer" ).on( "click", function( event ) {
-    $( event.target ).closest( "#parametrage" )
+   $("#parametrage").hide();
 });
 
 /* AFFICHE LE MENU CONTEXTUEL */
