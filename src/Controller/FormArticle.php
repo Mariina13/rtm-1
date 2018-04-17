@@ -13,7 +13,6 @@ class FormArticle
     
     protected $objetRequest;
     // METHODES
-
     function creerMessage ($objetRequest, $objetConnection, $cheminSymfony, $objetSession)
     {
         $this->objetRequest = $objetRequest;
@@ -28,22 +27,18 @@ class FormArticle
         $typeMessagerie        = $objetRequest->get("typeMessagerie", "");
         $idInterne             = $objetRequest->get("idInterne","");
         $validite              = $objetRequest->get("validite","");
-
         if (isset($_POST["id_stations"]) && ($texte != ""))
         {
         
         $typeMessagerie = 2 ;
-
         $messageEnvoye  = 1;
         $dateEnvoi = date("Y-m-d H:i:s");
         //Traitement des informations pour la table opération utilisateurs
         $sousTypeOperation = 0 ;
-
         $idStations = $_POST["id_stations"];
         $idStations = implode(',' , $idStations);
-        $operation = 5;
+        
         $idInterne = $idStations.$texte ;
-
         // on récupére l'identifiant de l'utilisateur
         $idUser         = $objetSession->get("id");
         
@@ -58,7 +53,6 @@ class FormArticle
                                     "message_envoye"    => $messageEnvoye,
                                     "type_messagerie"   => $typeMessagerie,
                                 ]);        
-
         // Insertion dans la 2éme table
         $objetConnection->insert("table_operations_utilisateur",
                                 [   "utilisateurs_id"       => $idUser,
@@ -80,19 +74,16 @@ CODEHTML;
 CODEHTML;
         }
     }
-
     function creerMode ($objetRequest, $objetConnection, $cheminSymfony, $objetSession)
     {
         
         $dateOperation         = $objetRequest->get("dateOperation","");
         $operation             = $objetRequest->get("operation","");
         $sousTypeOperation     = $objetRequest->get("sousTypeOperation", "");
+       
         $operation = 2;
-
-        //$idMode = 1;
         if (isset($_POST["id_stations"]) && ($sousTypeOperation == 1))
         {
-
         // on récupére l'identifiant de l'utilisateur
         $idUser         = $objetSession->get("id");
         //ON TRANSFORME LES STATIONS EN TABLEAUX POUR TOUTES LES RECUPEREES
@@ -121,7 +112,6 @@ CODEHTML;
         $idStations = implode(',' , $idStations);
         // on récupére l'identifiant de l'utilisateur
         $idUser         = $objetSession->get("id");
-
         $dateOperation = date("Y-m-d H:i:s");
      
             $objetConnection->insert("table_operations_utilisateur",
@@ -163,12 +153,9 @@ CODEHTML;
     }
     function updateMode ($objetRequest, $objetConnection, $objetEntityManager, $cheminSymfony, $objetSession)
     {
-        $mode                = $objetRequest->get("mode","");
-        $idUpdate              = $objetRequest->get("idUpdate","");
+        $id                     = $objetRequest->get("id","");
+        $idUpdate               = $objetRequest->get("idUpdate","");
         $sousTypeOperation     = $objetRequest->get("sousTypeOperation", "");
-        $operation             = $objetRequest->get("operation","");
-
-        //$mode = 1;
         // CONVERTIR $idUpdate EN NOMBRE
         $idUpdate = intval($idUpdate);
         
@@ -176,19 +163,16 @@ CODEHTML;
             {   
                 $idStations     = $_POST["id_stations"];
                 $idStations = implode(',' , $idStations);
-                
-                
+                 
                 $utilisateursId   = $objetSession->get("id");
                 
                 $dateOperation     = date("Y-m-d H:i:s");
-
                 $tabLigneUpdate =   [       "id_stations"         => $idStations,
                                             "sous_type_operation" => $sousTypeOperation,
                                             "utilisateurs_id"     =>  $utilisateursId,
                                             "date_operation"      => $dateOperation                                          
                                     ];
-                $objetConnection->update("table_operations_utilisateur", $tabLigneUpdate,["operation" => $idUpdate ]);
-
+                $objetConnection->update("table_operations_utilisateur", $tabLigneUpdate,["id" => $idUpdate ]);
                 echo 
                 <<<CODEHTML
                 <div class="ok">Modification(s) effectuée(s).</div>
@@ -201,44 +185,37 @@ CODEHTML;
                 <<<CODEHTML
                 <div class="ko"> Veuillez remplir le(s) champ(s). </div>
 CODEHTML;
-
             }
         }
-
     function updateMessage ($objetRequest, $objetConnection, $objetEntityManager, $cheminSymfony, $objetSession)
     {
-        $idMessage              = $objetRequest->get("idMessage","");
+        $id                     = $objetRequest->get("id","");
         $idUpdate               = $objetRequest->get("idUpdate","");       
-        $idInterne              = $objetRequest->get("idInterne","");
-        $operation              = $objetRequest->get("operation","");
-        $sousTypeOperation      = $objetRequest->get("sousTypeOperation", "");     
+        $idInterne              = $objetRequest->get("idInterne",""); 
+        $sousTypeOperation      = $objetRequest->get("sousTypeOperation", "");  
+        $operation              = $objetRequest->get("operation","");   
         $texte                  = $objetRequest->get("texte","");
-
         $idUpdate = intval($idUpdate);
         
             if (isset($_POST["id_stations"]) && ($idUpdate > 0) && ($texte != ""))
             {   
                 $idStations     = $_POST["id_stations"];
                 $idStations = implode(',' , $idStations);
-                
-                $operation = 5;
-
                 $idInterne = $idStations.$texte ;
                 
                 $utilisateursId   = $objetSession->get("id");
-                
+                $operation = 5;
                 $sousTypeOperation = 1;
                 $dateOperation    = date("Y-m-d H:i:s");
-
                 $dateEnvoi = date("Y-m-d H:i:s");
                 
                 $tabLigneUpdate =   [       "id_stations"         => $idStations,
+                                            "operation"           => $operation,
                                             "utilisateurs_id"     => $utilisateursId,
                                             "date_operation"      => $dateOperation,
                                             "sous_type_operation" => $sousTypeOperation                                        
                                     ];
                 $objetConnection->update("table_operations_utilisateur", $tabLigneUpdate,["operation" => $idUpdate ]);
-
                 $tabLigneUpdate =   [       "id_stations"        => $idStations,
                                             "texte"              => $texte,
                                             "date_envoi"         => $dateEnvoi,
@@ -258,7 +235,6 @@ CODEHTML;
                 <<<CODEHTML
                 <div class="ko"> Veuillez remplir le(s) champ(s). </div>
 CODEHTML;
-
             }
         }
         function updateMessageAnnule ($objetRequest, $objetConnection, $objetEntityManager, $cheminSymfony, $objetSession)
@@ -279,12 +255,9 @@ CODEHTML;
                     $sousTypeOperation = 2;
                     $dateAnnulation    = date("Y-m-d H:i:s");
                     $dateOperation     = date("Y-m-d H:i:s");
-
                     $utilisateursId  = $objetSession->get("id");
-
                     $messageEnvoye = 0;
                     $messageAnnule = 1 ;
-
                     $tabLigneUpdate =   [       "utilisateurs_id"       => $utilisateursId,
                                                 "operation"             => $operation,
                                                 "utilisateurs_id"       => $utilisateursId,
@@ -292,7 +265,6 @@ CODEHTML;
                                                 "sous_type_operation" => $sousTypeOperation                                        
                                         ];
                     $objetConnection->update("table_operations_utilisateur", $tabLigneUpdate,["id" => $idUpdate ]);
-
                     $tabLigneUpdate =   [       "date_annulation"   => $dateAnnulation,
                                                 "message_envoye"    => $messageEnvoye, 
                                                 "message_annule"    => $messageAnnule                                          
@@ -312,7 +284,6 @@ CODEHTML;
 CODEHTML;
                 }
         }
-
     function updateUtilisateur ($objetRequest, $objetConnection, $objetEntityManager, $cheminSymfony, $objetSession)
     {
         $idUpdate               = $objetRequest->get("idUpdate","");       
@@ -350,7 +321,6 @@ CODEHTML;
                 <div class="ok">Modification(s) effectuée(s) .</div>
 CODEHTML;
                 }
-
                 else
                 {
                     echo 
@@ -420,7 +390,6 @@ CODEHTML;
         $idUpdate = $objetRequest->get("idUpdate","");
         $password = $objetRequest->get("password","");
         $niveau   = $objetRequest->get("niveau","");
-
         $verifUser = $objetSession->get("id");
         $idUpdate = intval($idUpdate);
             // SECURITE TRES BASIQUE
@@ -435,7 +404,6 @@ CODEHTML;
                                     "niveau"            => $niveau
                                   ];
                 $objetConnection->update("utilisateurs", $tabLigneUpdate, [ "id" => $idUpdate ]);
-
                 // MESSAGE RETOUR POUR LE VISITEUR
                 echo
             <<<CODEHTML

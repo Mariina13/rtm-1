@@ -1,12 +1,25 @@
 <?php error_reporting(E_ALL);
 
+    $objetRepository     = $this->getDoctrine()->getRepository(App\Entity\Bornes::class);
+    $tabResultat         = $objetRepository->findBy(["typeEquipement" => ["0","1","2"]]);    
+    // ON A UN TABLEAU D'OBJETS DE CLASSE Bornes
+    foreach($tabResultat as $objetBornes)
+    {
+        $id                = $objetBornes->getId();
+        $sigep             = $objetBornes->getSigep();
+
+        $objetRepository2     = $this->getDoctrine()->getRepository(App\Entity\Stations::class);
+        $tabResultat = $objetRepository2->afficherNom($objetConnection, $sigep);
+        foreach($tabResultat as $tabLigne)
+        { 
+            extract($tabLigne);
 ?>
 
 <!-- MENU CONTEXTUEL -->
 <div id="box">
     <menu type="context" id="menu">
         <ul id="menu-vertical">
-            <li data-action="parametrage" class="parametre">parametrage</li>
+            <li id="<?php echo $id ?>"data-action="parametrage" class="parametre">parametrage</li>
             <li> Mode <i class="fas fa-caret-right"></i>
                 <ul id="ulMode">
                     <li>Fonctionnement réel</li>
@@ -32,3 +45,5 @@
         </ul>
     </menu>
 </div>
+
+<?php } }?>

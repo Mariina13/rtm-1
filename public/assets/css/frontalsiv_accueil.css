@@ -57,7 +57,7 @@ section .bornes-ip, section .bornes-radio , section .systeme
 .ko
 {
     width:50%;
-    margin-left: 34%;
+    margin-left: 28%;
     color:red;
     font-size:16px;
     font-weight: bold;

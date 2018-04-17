@@ -1,7 +1,6 @@
 /* AFFICHE LE MENU CONTEXTUEL */
 $("td .modif").bind("contextmenu", function (event) {
     var x = $(this).attr("id");
-    alert(x);
     // Avoid the real one
     event.preventDefault();
     // Show contextmenu
@@ -20,14 +19,14 @@ $(document).on("click", function (e){
 });
 // Fonction du menu
 $("#menu li").click(function(){
-
+    var x = $(this).attr("id");
         // This is the triggered action name
         switch($(this).attr("data-action")) {
             
             // A case for each action. Your actions here
             case "parametrage":
                 $("#parametrage").show();
-                var x = $(this).attr("id");
+                
                 alert(x);
             break;
             case "mode":

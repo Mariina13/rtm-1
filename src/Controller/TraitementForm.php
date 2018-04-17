@@ -93,10 +93,17 @@ CODEHTML;
             if ($objetUtilisateurs)
             {
               
-                $idUser         = $objetSession->get("id"); 
+                $idUser         = $objetSession->get("id");
+                $verifNiveau    = $objetSession->get("niveau"); 
                 $password = hash('sha256', $password, false);
                 //$passwordHash = $objetUtilisateurs->getPassword();
-                
+                if($verifNiveau == 0)
+                {
+                    echo 
+<<<CODEHTML
+        <div class="ko"> Votre compte à été désactivé </div>
+CODEHTML;
+                }
                 if ($password)
                 {
                     $tabResultat         = $objetRepository->ajouterHeureConnexion($objetConnection, $user);

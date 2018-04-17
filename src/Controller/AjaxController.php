@@ -14,7 +14,9 @@ use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;
 use Symfony\Component\Serializer\Serializer;
 
-use App\Entity\Utilisateurs;
+//namespace App\Entity\Bornes;
+//namespace App\Entity\TableEtatSysteme;
+
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
@@ -25,7 +27,7 @@ class AjaxController
 {
 
 
-    public function executeList(Request $objetRequest)
+    /*public function executeList(Request $objetRequest)
     {
         if ($objetRequest->isXmlHttpRequest())
         {
@@ -63,7 +65,7 @@ class AjaxController
 
         return $this->renderText(json_encode($output));
         }
-    }
+    }*/
     /**
     * @Route("/ajax", name="ajax")
     */   
