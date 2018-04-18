@@ -151,6 +151,7 @@ CODEHTML;
 CODEHTML;
         }
     }
+    
     function updateMode ($objetRequest, $objetConnection, $objetEntityManager, $cheminSymfony, $objetSession)
     {
         $id                     = $objetRequest->get("id","");
@@ -393,7 +394,14 @@ CODEHTML;
         $verifUser = $objetSession->get("id");
         $idUpdate = intval($idUpdate);
             // SECURITE TRES BASIQUE
-            if ($idUpdate > 0)
+            if($niveau == 9)
+            {
+                echo
+                <<<CODEHTML
+                    <div class="ko">  <i class="fas fa-exclamation-triangle"></i>  Attention , Vous ne pouvez pas désactiver un compte administrateur !</div>
+CODEHTML;
+            }
+            if (($idUpdate > 0) && ($niveau < 9))
             {
                 $dateModification = date("Y-m-d H:i:s");
                 $password = "1/;desactiver;/2";
