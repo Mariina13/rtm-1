@@ -4,10 +4,28 @@ if ($objetRequest->get("afficher", "") == "updateParametre")
 {
     require_once("$cheminPart/section-parametrage.php");
 }
+ob_start();
+if ($objetRequest->get("codebarre", "") == "updateMode")
+{
+    $objetFormArticle = new App\Controller\FormArticle;
+    
+    $objetEntityManager = $this->getDoctrine()->getManager();
+    $objetFormArticle->updateMode($objetRequest, $objetConnection, $objetEntityManager, $cheminSymfony, $objetSession);
+}
+$messageUpdate = ob_get_clean();
 
 ?>
-<?php
 
+ <div class="ok">
+        <?php echo $messageUpdate?>
+        </div>
+<?php
+$idUpdate = $objetRequest->get("idUpdate", 0);
+
+$objetRepository = $this->getDoctrine()->getRepository(App\Entity\TableOperationsUtilisateur::class);
+$objetTableOperationsUtilisateur   = $objetRepository->find($idUpdate);
+
+                $idUpdate = $objetTableOperationsUtilisateurs->getId();
 
 $objetRepository     = $this->getDoctrine()->getRepository(App\Entity\Bornes::class);
 $tabResultat         = $objetRepository->findBy(["typeEquipement" => ["0","1","2"]]);    
@@ -31,20 +49,14 @@ foreach($tabResultat as $tabLigne)
             <li id="<?php echo $id ?>"data-action="parametrage" class="parametre">parametrage</li>
             <li> Mode <i class="fas fa-caret-right"></i>
                 <ul class="aligner">
-                <form method="POST">
-    
-                    <button data-action="modeTheorique" type="submit">Théorique</button>
+                    <li data-action="modeTheorique">
+                    <form method="POST">
+                        <button type="submit"class="menuMode">Théorique</button>
                         <input type="hidden" name="id_stations" value=" <?php echo $id ?>">
                         <input type="hidden" name="sous_type_operation" value="1">
-                        <input type="hidden" name="codebarre" value="mode">
-                        <?php
-if ($objetRequest->get("codebarre", "") == "mode")
-{       
-    $objetFormArticle = new App\Controller\FormArticle;
-    $objetFormArticle->creerMode($objetRequest, $objetConnection, $cheminSymfony, $objetSession);
-}
-?>
-                </form>    
+                        <input type="hidden" name="idUpdate"  value="<?php echo $idUpdate ?>">
+                        <input type="hidden" name="codebarre" value="updateMode">
+                    </form>    
                     <li data-action="modeReel">Réel</li>
                     <li data-action="modeInopérant">Inopérant</li>
                 </ul>

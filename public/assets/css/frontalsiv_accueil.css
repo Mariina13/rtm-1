@@ -203,7 +203,14 @@ https://www.quackit.com/css/color/tools/css_color_scheme_generator.cfm*/
   {
     background-color:#444444;
     color:white;
-    color:white;
+    text-transform:uppercase;
+    font-size:12px;
+    text-shadow:1px 2px 1px black;
+  }
+ .aligner li:hover
+  {
+    background-color:none;
+    color:#4D4D4D;
     text-transform:uppercase;
     font-size:12px;
     text-shadow:1px 2px 1px black;
