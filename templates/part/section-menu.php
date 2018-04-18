@@ -1,18 +1,5 @@
-<?php error_reporting(E_ALL);
+<?php error_reporting(E_ALL); ?>
 
-ob_start();
-
-if ($objetRequest->get("codebarre", "") == "updateMode")
-{
-    $objetFormArticle = new App\Controller\FormArticle;
-    
-    $objetEntityManager = $this->getDoctrine()->getManager();
-    $objetFormArticle->updateMode($objetRequest, $objetConnection, $objetEntityManager, $cheminSymfony, $objetSession);
-}
-
-$messageUpdate = ob_get_clean();
-?>
-<div class="ok"> <?php echo $messageUpdate?> </div>
 <?php
 
             $objetRepository     = $this->getDoctrine()->getRepository(App\Entity\Bornes::class);
@@ -29,7 +16,6 @@ $messageUpdate = ob_get_clean();
                 foreach($tabResultat as $tabLigne)
                 { 
                     extract($tabLigne);
-                
 ?>
 
 <!-- MENU CONTEXTUEL -->
@@ -41,27 +27,11 @@ $messageUpdate = ob_get_clean();
                 <ul class="aligner">
                     <li data-action="modeTheorique">
                     <form method="POST">
-                        <button type="submit"class="menuMode">Théorique</button>
                         <input type="hidden" name="id_stations" value=" <?php echo $id ?>">
-                        <?php 
-                }
-            $idUpdate = $objetRequest->get("idUpdate", 0);
-            
-            $objetRepository = $this->getDoctrine()->getRepository(App\Entity\TableOperationsUtilisateur::class);
-            $objetTableOperationsUtilisateur   = $objetRepository->find($idUpdate);
-
-                if($objetTableOperationsUtilisateur)
-                    {
-                        $idUpdate     = $objetTableOperationsUtilisateur->getId();
-                   echo
-<<<CODEHTML
-        <input type="hidden" name="idUpdate" value="$idUpdate">
-CODEHTML;
-?>
                         <input type="hidden" name="sousTypeOperation" value="1">
-                        <input type="hidden" name="codebarre" value="updateMode">
+                        <input type="hidden" name="codebarre" value="modeMenu">
+                        <button type="submit"class="menuMode">Théorique</button>
                     </form>
-               <?php } ?></li>
                     <li data-action="modeReel">Réel</li>
                     <li data-action="modeInopérant">Inopérant</li>
                 </ul>
@@ -81,4 +51,4 @@ CODEHTML;
     </menu>
 </div>
 
-<?php } ?>
+<?php } }?>

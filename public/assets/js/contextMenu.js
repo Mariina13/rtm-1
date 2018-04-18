@@ -55,8 +55,9 @@ $("#menu li").click(function(){
                 $("#parametrage").show();
                 
             break;
-            case "mode":
-            alert("mode"); break;
+            case "modeTheorique":
+
+            break;
             case "horaire": $("#horaire").show(); break;
         }
         // Hide it AFTER the action was triggered

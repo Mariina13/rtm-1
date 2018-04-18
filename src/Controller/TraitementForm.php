@@ -230,6 +230,82 @@ CODEHTML;
 CODEHTML;
                                     
             }
-    }   
+    }
+    function traiterMode($objetRequest, $objetConnection, $objetRepository, $objetSession)
+    {
+        $dateOperation         = $objetRequest->get("dateOperation","");
+        $operation             = $objetRequest->get("operation","");
+        $sousTypeOperation     = $objetRequest->get("sousTypeOperation", "");
+    
+        $operation = 2;
+        if (isset($_POST["id_stations"]) && ($sousTypeOperation == 1))
+        {
+        // on récupére l'identifiant de l'utilisateur
+        $idUser         = $objetSession->get("id");
+        //ON TRANSFORME LES STATIONS EN TABLEAUX POUR TOUTES LES RECUPEREES
+        $idStations     = $_POST["id_stations"];
+        $idStations = implode(',' , $idStations);
+        
+        $dateOperation = date("Y-m-d H:i:s");
+    
+            $objetConnection->insert("table_operations_utilisateur",
+                                [   "utilisateurs_id"       => $idUser,
+                                    "date_operation"        => $dateOperation,
+                                    "operation"             => $operation,
+                                    "sous_type_operation"   => $sousTypeOperation,
+                                    "id_stations"           => $idStations
+                                ]);
+            
+        echo
+        <<<CODEHTML
+        <div class="ok"> Le mode Théorique est activé </div>
+CODEHTML;
+        }
+        if(isset($_POST["id_stations"]) && ($sousTypeOperation == 2))
+        {
+        //ON TRANSFORME LES STATIONS EN TABLEAUX POUR TOUTES LES RECUPEREES
+        $idStations     = $_POST["id_stations"];
+        $idStations = implode(',' , $idStations);
+        // on récupére l'identifiant de l'utilisateur
+        $idUser         = $objetSession->get("id");
+        $dateOperation = date("Y-m-d H:i:s");
+    
+            $objetConnection->insert("table_operations_utilisateur",
+                                [   "utilisateurs_id"       => $idUser,
+                                    "date_operation"        => $dateOperation,
+                                    "operation"             => $operation,
+                                    "sous_type_operation"   => $sousTypeOperation,
+                                    "id_stations"           => $idStations
+                                ]);
+            
+        echo
+        <<<CODEHTML
+        <div class="ok"> Le mode Réel est activé </div>
+CODEHTML;
+    }
+        if(isset($_POST["id_stations"]) && ($sousTypeOperation == 3))
+        {
+    //ON TRANSFORME LES STATIONS EN TABLEAUX POUR TOUTES LES RECUPEREES
+        $idStations     = $_POST["id_stations"];
+        $idStations = implode(',' , $idStations);
+        // on récupére l'identifiant de l'utilisateur
+        $idUser         = $objetSession->get("id");
+        
+        $dateOperation = date("Y-m-d H:i:s");
+    
+            $objetConnection->insert("table_operations_utilisateur",
+                                [   "utilisateurs_id"       => $idUser,
+                                    "date_operation"        => $dateOperation,
+                                    "operation"             => $operation,
+                                    "sous_type_operation"   => $sousTypeOperation,
+                                    "id_stations"           => $idStations
+                                ]);
+            
+        echo
+        <<<CODEHTML
+        <div class="ok"> Le mode Inopérant est activé </div>
+CODEHTML;
+        }
+    }
 }
 
