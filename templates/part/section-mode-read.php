@@ -16,6 +16,7 @@ error_reporting(E_ALL);
                 <tr>
                     <th class="operation"> Date d'operation</th>
                     <th> Stations </th>
+                    <th> Lignes Commerciales </th>
                     <th> Operation </th>
                     <th> Modifier </th>
                 </tr>
@@ -54,7 +55,8 @@ CODEHTML;
                 extract($tabLigne);
                 echo
 <<<CODEHTML
-                <td>$nomPtReseau</td>                
+<td>$nomPtReseau $sens</td>
+<td>$lignesCommercialesStation</td>              
                               
 CODEHTML;
             }

@@ -19,6 +19,7 @@
             <tr>
                 <th> Date d'envoi</th>
                 <th> Station </th>
+                <th> Lignes Commerciales</th>
                 <th> Message </th>
                 <th> Envoyé </th>
                 <th> Modifier </th>
@@ -58,7 +59,8 @@ CODEHTML;
                 extract($tabLigne);
                 echo
 <<<CODEHTML
-                <td>$nomPtReseau</td>                
+                <td>$nomPtReseau $sens</td>
+                <td>$lignesCommercialesStation</td>               
                               
 CODEHTML;
             }
