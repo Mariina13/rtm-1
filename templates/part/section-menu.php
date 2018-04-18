@@ -1,5 +1,20 @@
 <?php error_reporting(E_ALL);
 
+ob_start();
+
+if ($objetRequest->get("codebarre", "") == "updateMode")
+{
+    $objetFormArticle = new App\Controller\FormArticle;
+    
+    $objetEntityManager = $this->getDoctrine()->getManager();
+    $objetFormArticle->updateMode($objetRequest, $objetConnection, $objetEntityManager, $cheminSymfony, $objetSession);
+}
+
+$messageUpdate = ob_get_clean();
+?>
+<div class="ok"> <?php echo $messageUpdate?> </div>
+<?php
+
             $objetRepository     = $this->getDoctrine()->getRepository(App\Entity\Bornes::class);
             $tabResultat         = $objetRepository->findBy(["typeEquipement" => ["0","1","2"]]);    
             // ON A UN TABLEAU D'OBJETS DE CLASSE Bornes
@@ -14,6 +29,7 @@
                 foreach($tabResultat as $tabLigne)
                 { 
                     extract($tabLigne);
+                
 ?>
 
 <!-- MENU CONTEXTUEL -->
@@ -25,18 +41,27 @@
                 <ul class="aligner">
                     <li data-action="modeTheorique">
                     <form method="POST">
-                        <input type="hidden" name="id_stations" value=" <?php echo $id ?>">
-                        <input type="hidden" name="sousTypeOperation" value="1">
-                        <input type="hidden" name="codebarre" value="mode">
                         <button type="submit"class="menuMode">Théorique</button>
-<?php
-if ($objetRequest->get("codebarre", "") == "mode")
-{       
-    $objetFormArticle = new App\Controller\FormArticle;
-    $objetFormArticle->creerMode($objetRequest, $objetConnection, $cheminSymfony, $objetSession);
-}
+                        <input type="hidden" name="id_stations" value=" <?php echo $id ?>">
+                        <?php 
+                }
+            $idUpdate = $objetRequest->get("idUpdate", 0);
+            
+            $objetRepository = $this->getDoctrine()->getRepository(App\Entity\TableOperationsUtilisateur::class);
+            $objetTableOperationsUtilisateur   = $objetRepository->find($idUpdate);
+
+                if($objetTableOperationsUtilisateur)
+                    {
+                        $idUpdate     = $objetTableOperationsUtilisateur->getId();
+                   echo
+<<<CODEHTML
+        <input type="hidden" name="idUpdate" value="$idUpdate">
+CODEHTML;
 ?>
+                        <input type="hidden" name="sousTypeOperation" value="1">
+                        <input type="hidden" name="codebarre" value="updateMode">
                     </form>
+               <?php } ?></li>
                     <li data-action="modeReel">Réel</li>
                     <li data-action="modeInopérant">Inopérant</li>
                 </ul>
@@ -56,4 +81,4 @@ if ($objetRequest->get("codebarre", "") == "mode")
     </menu>
 </div>
 
-<?php } }?>
+<?php } ?>
