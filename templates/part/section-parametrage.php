@@ -13,6 +13,20 @@ $messageUpdate = ob_get_clean();
 
 ?>
 <?php
+/*
+$objetRepository = $this->getDoctrine()->getRepository(App\Entity\ParametrageBornes::class);
+$objetParametrageBornes   = $objetRepository->find($idUpdate);
+
+if($objetParametrageBornes)
+{
+    $version                  = $objetParametrageBornes->getVersion();
+    $seuilApprocheVehicule    = $objetParametrageBornes->getSeuilApprocheVehicule();
+    $modeAffRuptureCom        = $objetParametrageBornes->getModeAffRuptureCom();
+    $seuilDetRuptureCom       = $objetParametrageBornes->getSeuilDetRuptureCom();
+    $modeDeFonctionnement     = $objetParametrageBornes->getModeDeFonctionnement();
+    $seuilDeMaintien          = $objetParametrageBornes->getSeuilDeMaintien();
+    $texteProxVehicule        = $objetParametrageBornes->getTexteProxVehicule();
+*/
 $objetRepository     = $this->getDoctrine()->getRepository(App\Entity\Bornes::class);
 $tabResultat         = $objetRepository->findBy(["typeEquipement" => ["0","1","2"]]);    
 // ON A UN TABLEAU D'OBJETS DE CLASSE Bornes
@@ -69,7 +83,6 @@ foreach($tabResultat as $tabLigne)
         <button id ="fermer1" type="submit">Appliquer</button>
         <input type="hidden" name="codebarre" value="createParametre">
         <input type="hidden" name="id_stations" value="<?php echo $id ?>">
-        <div class="ok">
 <?php
 }
 if ($objetRequest->get("codebarre", "") == "createParametre")
@@ -80,10 +93,8 @@ if ($objetRequest->get("codebarre", "") == "createParametre")
 }
 
 ?>
-        </div>
         </form>
     </div>
-
 <?php } ?>
 
 

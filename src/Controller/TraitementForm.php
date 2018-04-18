@@ -200,10 +200,10 @@ CODEHTML;
                                 "id_stations"           => $idStations
                             ]);
             // MESSAGE POUR LE VISITEUR
-            /*echo
+            echo
 <<<CODEHTML
         <div class="response"> Vos paramétres ont été appliqués. </div>
-CODEHTML;*/
+CODEHTML;
             
             }
             else

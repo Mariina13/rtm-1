@@ -21,7 +21,9 @@ $("td#inoperant").css({
 $( "#fermer" ).on( "click", function( event ) {
    $("#parametrage").hide();
 });
-
+$( "#fermer1" ).on( "click", function( event ) {
+    $("#parametrage").hide();
+ });
 /* AFFICHE LE MENU CONTEXTUEL */
 $("td .modif").bind("contextmenu", function (event) {
     var x = $(this).attr("id");
@@ -52,7 +54,6 @@ $("#menu li").click(function(){
             case "parametrage":
                 $("#parametrage").show();
                 
-                alert(x);
             break;
             case "mode":
             alert("mode"); break;

@@ -3,9 +3,11 @@
 if ($objetRequest->get("afficher", "") == "updateParametre")
 {
     require_once("$cheminPart/section-parametrage.php");
-}   
+}
+
 ?>
 <?php
+
 
 $objetRepository     = $this->getDoctrine()->getRepository(App\Entity\Bornes::class);
 $tabResultat         = $objetRepository->findBy(["typeEquipement" => ["0","1","2"]]);    
@@ -28,14 +30,23 @@ foreach($tabResultat as $tabLigne)
         <ul id="menu-vertical">
             <li id="<?php echo $id ?>"data-action="parametrage" class="parametre">parametrage</li>
             <li> Mode <i class="fas fa-caret-right"></i>
-                <ul id="ulMode">
-                    <li>Fonctionnement réel</li>
-                        <ul class="aligner">
-                            <li data-action="modeTheorique">Théorique</li>
-                            <li data-action="modeReel">Réel</li>
-                            <li data-action="modeInopérant">Inopérant</li>
-                        </ul>
-                    </li>
+                <ul class="aligner">
+                <form method="POST">
+    
+                    <button data-action="modeTheorique" type="submit">Théorique</button>
+                        <input type="hidden" name="id_stations" value=" <?php echo $id ?>">
+                        <input type="hidden" name="sous_type_operation" value="1">
+                        <input type="hidden" name="codebarre" value="mode">
+                        <?php
+if ($objetRequest->get("codebarre", "") == "mode")
+{       
+    $objetFormArticle = new App\Controller\FormArticle;
+    $objetFormArticle->creerMode($objetRequest, $objetConnection, $cheminSymfony, $objetSession);
+}
+?>
+                </form>    
+                    <li data-action="modeReel">Réel</li>
+                    <li data-action="modeInopérant">Inopérant</li>
                 </ul>
             </li>    
             <li data-action="horaire" id="horaire">Horaires de passage</li>
