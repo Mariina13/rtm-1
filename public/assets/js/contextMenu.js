@@ -15,7 +15,6 @@ $("td#inoperant").css({
     "text-transform" : "uppercase"
 });
 
-
 /* FERME LA DIV PARAMETRAGE*/
 
 $( "#fermer" ).on( "click", function( event ) {
@@ -24,9 +23,14 @@ $( "#fermer" ).on( "click", function( event ) {
 $( "#fermer1" ).on( "click", function( event ) {
     $("#parametrage").hide();
  });
+ $( "#fermer2" ).on( "click", function( event ) {
+    $("#parametrage").hide();
+ });
+
 /* AFFICHE LE MENU CONTEXTUEL */
 $("td .modif").bind("contextmenu", function (event) {
     var x = $(this).attr("id");
+    alert(x);
     // Avoid the real one
     event.preventDefault();
     // Show contextmenu
@@ -52,14 +56,47 @@ $("#menu li").click(function(){
             
             // A case for each action. Your actions here
             case "parametrage":
+            var x = $(this).attr("id");
                 $("#parametrage").show();
-                
+                alert(x);
             break;
             case "modeTheorique":
 
             break;
-            case "horaire": $("#horaire").show(); break;
+            case "horaire": 
+            $("#Horaire").show();
+            break;
         }
         // Hide it AFTER the action was triggered
         $("#menu").hide(100);
   });
+  $(function(){
+
+    // JE PRENDS LA MAIN SUR LE FORMULAIRE
+    $(document).ready(function(event){
+        // BLOQUER L'ENVOI DU FORMULAIRE
+
+        console.log("JE PRENDS LA MAIN");
+
+        // ON VA ENVOYER LE FORMULAIRE EN AJAX
+        // ON RECUPERE LES INFOS DU FORMULAIRE
+        var formData = new FormData(this);
+
+        // urlAJax A DETERMINER
+        $.ajax({
+            method:         "POST",
+            url:            urlAjax,
+            data:           formData,
+            contentType:    false,
+            processData:    false
+        })
+        .done(function(response){
+            // CETTE FONCTION SERA APPELEE 
+            // QUAND LE NAVIGATEUR VA RECEVOIR LE REPONSE DU SERVEUR
+            // JE VAIS AFFICHER response DANS LA BALISE .response
+            console.log(response);
+           $("#auto").hide().load(response).show();
+        });
+
+    });
+});

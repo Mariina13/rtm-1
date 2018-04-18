@@ -1,9 +1,8 @@
 <?php error_reporting(E_ALL); 
-require_once("$cheminPart/section-menu.php");
-require_once("$cheminPart/section-parametrage.php");
+//require_once("$cheminPart/section-menu.php");
+//require_once("$cheminPart/section-parametrage.php");
 ?>
 
- <div class="ok"><?php echo $messageUpdate?></div>
 <section>
 <!-- ------------------------------------- -->
 <!-- ------------ BORNES IP -------------- -->
@@ -106,13 +105,96 @@ CODEHTML;
                 <<<CODEHTML
                 <td class="button">
                         <button class="modif" id="$id" type="submit"><i class="far fa-plus-square"></i></button>
-                </td>
+                        <div id="box">
+                        <menu type="context" id="menu">
+                            <ul id="menu-vertical">
+                                <li id="$id"data-action="parametrage" class="parametre">parametrage</li>
+                                <li> Mode <i class="fas fa-caret-right"></i>
+                                    <ul class="aligner">
+                                        <li data-action="modeTheorique">
+                                        <form method="POST">
+                                            <input type="hidden" name="id_stations" value="$id">
+                                            <input type="hidden" name="sousTypeOperation" value="1">
+                                            <input type="hidden" name="codebarre" value="modeMenu">
+                                            <button type="submit"class="menuMode">Théorique</button>
+                                        </form>
+                                        <li data-action="modeReel">Réel</li>
+                                        <li data-action="modeInopérant">Inopérant</li>
+                                    </ul>
+                                </li>    
+                                <li data-action="horaire" class="horaire">Horaires de passage</li>
+                                <li> Affichage des données Spoti </li>
+                                <li data-action="messagerie" id="commandMessagerie">Messagerie Commerciale</li>
+                                <li>Télécharger les tables <i class="fas fa-caret-right"></i>
+                                    <ul class="aligner">
+                                        <li data-action="toutes">Toutes</li>
+                                        <li data-action="ligne">Ligne</li>
+                                        <li data-action="destination">Destination</li>
+                                        <li data-action="horaire">Horaire</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </menu>
+                    </div>
+                        </td>
 CODEHTML;
-}
+
 ?>
             </tbody>
     </table>
 </section>
+<div id ="parametrage">
+    <div class="titre">
+        <button class="close" id="fermer"> X </button>
+            <h2> Borne sigep : <?php echo $sigep ?> </h2>
+    </div>
+         <form id="parametre" method ="POST">
+ 
+        <label for="version"> Version des paramétres : </label>
+        <input id="version" type="text" name="version" value="1" required/>
+     
+        <label for="approche"> Seuil approche véhicule : </label>
+        <input id="approche" type="text" name="seuilApprocheVehicule" value = "1200" required/>
+     
+        <label for="mode"> Mode Aff Rupture Comm : </label>
+        <select id="mode" name="modeAffRuptureCom" required>
+            <option> </option>
+             <option value="3" selected >Théorique</option>
+             <option value="4" >Réel</option>
+             <option value="6" >Inopérant</option>
+         </select>
+     
+         <label for="seuil">Seuil det. Rupture Com :</label>
+        <input id="seuil" type="text" name="seuilDetRuptureCom" value="120" required/>
+     
+         <label for="fonctionnement">Mode de fonctionnement : </label>
+         <select id="fonctionnement" name="modeDeFonctionnement">
+            <option> </option>
+             <option value="1" selected>Départ</option>
+             <option value="2">Ligne</option>
+         </select>
+     
+        <label for="maintien"> Seuil de maintien : </label>
+        <input id="maintien" type="text" name="seuilDeMaintien" value="10" required/>
+     
+        <label for="prox">Texte Prox. Véhicule :</label>
+        <input id="prox" type = "text" name ="texteProxVehicule" value="" required/>
+         
+        <button id ="fermer1" type="submit">Appliquer</button>
+        <input type="hidden" name="codebarre" value="createParametre">
+        <input type="hidden" name="id_stations" value="<?php echo $id ?>">
+<?php
+}
+if ($objetRequest->get("codebarre", "") == "createParametre")
+{       
+     $objetTraitementForm = new App\Controller\TraitementForm;
+ 
+     $objetTraitementForm->traiterParametre($objetRequest, $objetConnection, $cheminSymfony, $objetSession);
+}
+
+?>
+        </form>
+    </div>
 <hr>
 
 
@@ -211,18 +293,98 @@ CODEHTML;
                     <td>$refVersionTable</td>
                     <td>$dataSivSent</td>
                     <td>
-                    <form method="POST">
-                        <input type="hidden" name="id_stations" value="$id"/>
                         <button class="modif" id="$id"  type="button"><i class="far fa-plus-square"></i></button>
-                        </form>
+                        <div id="box">
+                        <menu type="context" id="menu">
+                            <ul id="menu-vertical">
+                                <li id="$id"data-action="parametrage" class="parametre">parametrage</li>
+                                <li> Mode <i class="fas fa-caret-right"></i>
+                                    <ul class="aligner">
+                                        <li data-action="modeTheorique">
+                                        <form method="POST">
+                                            <input type="hidden" name="id_stations" value="$id">
+                                            <input type="hidden" name="sousTypeOperation" value="1">
+                                            <input type="hidden" name="codebarre" value="modeMenu">
+                                            <button type="submit"class="menuMode">Théorique</button>
+                                        </form>
+                                        <li data-action="modeReel">Réel</li>
+                                        <li data-action="modeInopérant">Inopérant</li>
+                                    </ul>
+                                </li>    
+                                <li data-action="horaire" class="horaire">Horaires de passage</li>
+                                <li> Affichage des données Spoti </li>
+                                <li data-action="messagerie" id="commandMessagerie">Messagerie Commerciale</li>
+                                <li>Télécharger les tables <i class="fas fa-caret-right"></i>
+                                    <ul class="aligner">
+                                        <li data-action="toutes">Toutes</li>
+                                        <li data-action="ligne">Ligne</li>
+                                        <li data-action="destination">Destination</li>
+                                        <li data-action="horaire">Horaire</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </menu>
+                    </div>
                     </td>
 CODEHTML;
 ?>
 </tr>
-<?php } ?>
+
         </tbody>
     </table>
 </section>
+<div id ="parametrage">
+    <div class="titre">
+        <button class="close" id="fermer"> X </button>
+            <h2> Borne sigep : <?php echo $sigep ?> </h2>
+    </div>
+         <form id="parametre" method ="POST">
+ 
+        <label for="version"> Version des paramétres : </label>
+        <input id="version" type="text" name="version" value="1" required/>
+     
+        <label for="approche"> Seuil approche véhicule : </label>
+        <input id="approche" type="text" name="seuilApprocheVehicule" value = "1200" required/>
+     
+        <label for="mode"> Mode Aff Rupture Comm : </label>
+        <select id="mode" name="modeAffRuptureCom" required>
+            <option> </option>
+             <option value="3" selected >Théorique</option>
+             <option value="4" >Réel</option>
+             <option value="6" >Inopérant</option>
+         </select>
+     
+         <label for="seuil">Seuil det. Rupture Com :</label>
+        <input id="seuil" type="text" name="seuilDetRuptureCom" value="120" required/>
+     
+         <label for="fonctionnement">Mode de fonctionnement : </label>
+         <select id="fonctionnement" name="modeDeFonctionnement">
+            <option> </option>
+             <option value="1" selected>Départ</option>
+             <option value="2">Ligne</option>
+         </select>
+     
+        <label for="maintien"> Seuil de maintien : </label>
+        <input id="maintien" type="text" name="seuilDeMaintien" value="10" required/>
+     
+        <label for="prox">Texte Prox. Véhicule :</label>
+        <input id="prox" type = "text" name ="texteProxVehicule" value="" required/>
+         
+        <button id ="fermer1" type="submit">Appliquer</button>
+        <input type="hidden" name="codebarre" value="createParametre">
+        <input type="hidden" name="id_stations" value="<?php echo $id ?>">
+<?php
+}
+if ($objetRequest->get("codebarre", "") == "createParametre")
+{       
+     $objetTraitementForm = new App\Controller\TraitementForm;
+ 
+     $objetTraitementForm->traiterParametre($objetRequest, $objetConnection, $cheminSymfony, $objetSession);
+}
+
+?>
+        </form>
+    </div>
 <hr>
 
 <?php error_reporting(E_ALL); 
@@ -325,18 +487,98 @@ CODEHTML;
                 <td>$refVersionTable</td>
                 <td>$dataSivSent</td>
                 <td>
-                <form method="POST">
-                    <input type="hidden" name="id_stations" value="$id"/>
                     <button class="modif" id="$id"  type="button"><i class="far fa-plus-square"></i></button>
-                </form>
-                </td>
+                    <div id="box">
+                    <menu type="context" id="menu">
+                        <ul id="menu-vertical">
+                            <li id="$id"data-action="parametrage" class="parametre">parametrage</li>
+                            <li> Mode <i class="fas fa-caret-right"></i>
+                                <ul class="aligner">
+                                    <li data-action="modeTheorique">
+                                    <form method="POST">
+                                        <input type="hidden" name="id_stations" value="$id">
+                                        <input type="hidden" name="sousTypeOperation" value="1">
+                                        <input type="hidden" name="codebarre" value="modeMenu">
+                                        <button type="submit"class="menuMode">Théorique</button>
+                                    </form>
+                                    <li data-action="modeReel">Réel</li>
+                                    <li data-action="modeInopérant">Inopérant</li>
+                                </ul>
+                            </li>    
+                            <li data-action="horaire" class="horaire">Horaires de passage</li>
+                            <li> Affichage des données Spoti </li>
+                            <li data-action="messagerie" id="commandMessagerie">Messagerie Commerciale</li>
+                            <li>Télécharger les tables <i class="fas fa-caret-right"></i>
+                                <ul class="aligner">
+                                    <li data-action="toutes">Toutes</li>
+                                    <li data-action="ligne">Ligne</li>
+                                    <li data-action="destination">Destination</li>
+                                    <li data-action="horaire">Horaire</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </menu>
+                </div>
+                    </td>
 CODEHTML;
 ?>
 </tr>
-<?php } ?>
+
         </tbody>
     </table>
 </section>
+<div id ="parametrage">
+    <div class="titre">
+        <button class="close" id="fermer"> X </button>
+            <h2> Borne sigep : <?php echo $sigep ?> </h2>
+    </div>
+         <form id="parametre" method ="POST">
+ 
+        <label for="version"> Version des paramétres : </label>
+        <input id="version" type="text" name="version" value="1" required/>
+     
+        <label for="approche"> Seuil approche véhicule : </label>
+        <input id="approche" type="text" name="seuilApprocheVehicule" value = "1200" required/>
+     
+        <label for="mode"> Mode Aff Rupture Comm : </label>
+        <select id="mode" name="modeAffRuptureCom" required>
+            <option> </option>
+             <option value="3" selected >Théorique</option>
+             <option value="4" >Réel</option>
+             <option value="6" >Inopérant</option>
+         </select>
+     
+         <label for="seuil">Seuil det. Rupture Com :</label>
+        <input id="seuil" type="text" name="seuilDetRuptureCom" value="120" required/>
+     
+         <label for="fonctionnement">Mode de fonctionnement : </label>
+         <select id="fonctionnement" name="modeDeFonctionnement">
+            <option> </option>
+             <option value="1" selected>Départ</option>
+             <option value="2">Ligne</option>
+         </select>
+     
+        <label for="maintien"> Seuil de maintien : </label>
+        <input id="maintien" type="text" name="seuilDeMaintien" value="10" required/>
+     
+        <label for="prox">Texte Prox. Véhicule :</label>
+        <input id="prox" type = "text" name ="texteProxVehicule" value="" required/>
+         
+        <button id ="fermer1" type="submit">Appliquer</button>
+        <input type="hidden" name="codebarre" value="createParametre">
+        <input type="hidden" name="id_stations" value="<?php echo $id ?>">
+<?php
+}
+if ($objetRequest->get("codebarre", "") == "createParametre")
+{       
+     $objetTraitementForm = new App\Controller\TraitementForm;
+ 
+     $objetTraitementForm->traiterParametre($objetRequest, $objetConnection, $cheminSymfony, $objetSession);
+}
+
+?>
+        </form>
+    </div>
 <hr>
 
 <!-- ---------------------------------------- -->
