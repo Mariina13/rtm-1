@@ -1,8 +1,4 @@
-var table = document.getElementById("bornes-ip");
-function Raffraichir(table)
-{
-	table = setTimeOut(2000);  
-}
+
 function rafraichirIp(){
 $(document).ready( function(){
 	// BLOQUER L'ENVOI DU FORMULAIRE
@@ -25,7 +21,7 @@ $(document).ready( function(){
 		// QUAND LE NAVIGATEUR VA RECEVOIR LE REPONSE DU SERVEUR
 		// JE VAIS AFFICHER response DANS LA BALISE .response
 		console.log(response);
-	   $("#tableIp").replaceWith(response);
+		$("#tableIp").replaceWith(response);
 	});
 
 });

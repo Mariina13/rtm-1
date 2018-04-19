@@ -1,3 +1,4 @@
+<section>
 <table id="tableSysteme">
     <caption>SYSTEME</caption>
         <thead>
@@ -36,3 +37,4 @@ CODEHTML;
                 </tr>
             </tbody>
     </table>
+    </section>
