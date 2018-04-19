@@ -94,10 +94,10 @@ CODEHTML;
 // AFFICHE LE RESTE DES DONNEES
     echo
 <<<CODEHTML
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+        <td>$numeroInterne</td>
+        <td>$dataSpoti</td>
+        <td>$refVersionTable</td>
+        <td>$dataSivSent</td>
 CODEHTML;
 ?>
 <?php
