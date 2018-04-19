@@ -31,7 +31,7 @@ $(document).ready( function(){
 });
 }
 rafraichirIp();
-//setInterval(rafraichirIp, 8000);
+//setInterval(rafraichirIp, 12000);
 
 function rafraichirRadio(){
 	$(document).ready( function(){
@@ -61,7 +61,7 @@ function rafraichirRadio(){
 	});
 	}
 	rafraichirRadio();
-	//setInterval(rafraichirRadio, 8000);
+	//setInterval(rafraichirRadio, 12000);
 
 function rafraichirGeze(){
 	$(document).ready( function(){
@@ -91,7 +91,7 @@ function rafraichirGeze(){
 	});
 	}
 	rafraichirGeze();
-	//setInterval(rafraichirGeze, 8000);
+	//setInterval(rafraichirGeze, 12000);
 
 
 function rafraichirEtatSysteme(){
@@ -122,4 +122,4 @@ function rafraichirEtatSysteme(){
 	});
 	}
 	rafraichirEtatSysteme();
-	//setInterval(rafraichirEtatSysteme, 8000);
+	//setInterval(rafraichirEtatSysteme, 12000);
