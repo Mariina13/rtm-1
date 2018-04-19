@@ -1,5 +1,6 @@
 <?php error_reporting(E_ALL); ?>
-<table id="tableIp" class="bornes-ip" data-order='[[ 1, "asc" ]]' data-page-length='5'>
+
+<table id="tableRadio" class="bornes-ip" data-order='[[ 1, "asc" ]]' data-page-length='5'>
         <caption>BORNES IP</caption>
             <thead>
             <tr>
@@ -19,7 +20,7 @@
                     <tr>
             <?php
 $objetRepository     = $this->getDoctrine()->getRepository(App\Entity\Bornes::class);
-$tabResultat         = $objetRepository->findBy(["typeEquipement" => "0"]);    
+$tabResultat         = $objetRepository->findBy(["typeEquipement" => "1"]);    
 // ON A UN TABLEAU D'OBJETS DE CLASSE Bornes
 foreach($tabResultat as $objetBornes)
 {
@@ -54,7 +55,7 @@ else
 $id = $objetRequest->get("id","");
 // AFFICHE LE NOM DES STATIONS
 $objetRepository2     = $this->getDoctrine()->getRepository(App\Entity\Stations::class);
-$tabResultat = $objetRepository2->afficherNomBornesIp($objetConnection, $sigep);
+$tabResultat = $objetRepository2->afficherNomBornesRadio($objetConnection, $sigep);
 foreach($tabResultat as $tabLigne)
 { 
     extract($tabLigne);
@@ -137,6 +138,7 @@ CODEHTML;
                     </tr>
                 </tbody>
     </table>
+
 
 
     

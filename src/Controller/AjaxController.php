@@ -43,5 +43,59 @@ class AjaxController
             
             return new Response($contenuCache);
     }
+    /**
+    * @Route("/ajax1", name="ajax1")
+    */   
+    public function ajax1 (Request $objetRequest, Connection $objetConnection,SessionInterface $objetSession)
+    {
+
+        ob_start();
+    
+        // METHODE DE SYMFONY POUR OBTENIR LE CHEMIN DU DOSSIER rtm-1        
+        $cheminSymfony   = $this->getParameter('kernel.project_dir');
+        $cheminTemplates = "$cheminSymfony/templates"; 
+        $cheminPart      = "$cheminTemplates/part"; 
+        require_once("$cheminPart/ajax1.php");
+
+            $contenuCache = ob_get_clean();
+            
+            return new Response($contenuCache);
+    }
+    /**
+    * @Route("/ajax2", name="ajax2")
+    */   
+    public function ajax2 (Request $objetRequest, Connection $objetConnection,SessionInterface $objetSession)
+    {
+
+        ob_start();
+    
+        // METHODE DE SYMFONY POUR OBTENIR LE CHEMIN DU DOSSIER rtm-1        
+        $cheminSymfony   = $this->getParameter('kernel.project_dir');
+        $cheminTemplates = "$cheminSymfony/templates"; 
+        $cheminPart      = "$cheminTemplates/part"; 
+        require_once("$cheminPart/ajax2.php");
+
+            $contenuCache = ob_get_clean();
+            
+            return new Response($contenuCache);
+    }
+    /**
+    * @Route("/ajax3", name="ajax3")
+    */   
+    public function ajax3 (Request $objetRequest, Connection $objetConnection,SessionInterface $objetSession)
+    {
+
+        ob_start();
+    
+        // METHODE DE SYMFONY POUR OBTENIR LE CHEMIN DU DOSSIER rtm-1        
+        $cheminSymfony   = $this->getParameter('kernel.project_dir');
+        $cheminTemplates = "$cheminSymfony/templates"; 
+        $cheminPart      = "$cheminTemplates/part"; 
+        require_once("$cheminPart/ajax3.php");
+
+            $contenuCache = ob_get_clean();
+            
+            return new Response($contenuCache);
+    }
           
 }
