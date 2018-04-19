@@ -16,7 +16,6 @@ foreach($tabResultat as $objetBornes)
     $dataSivSent       = $objetBornes->getDataSivSent();
                 echo
             <<<CODEHTML
-            <tr>
                 <td>$sigep</td>
 CODEHTML;
 ?>

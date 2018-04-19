@@ -25,7 +25,7 @@ $(document).ready( function(){
 		// QUAND LE NAVIGATEUR VA RECEVOIR LE REPONSE DU SERVEUR
 		// JE VAIS AFFICHER response DANS LA BALISE .response
 		console.log(response);
-	   $("#borneIp").load(response);
+	   $("tbody").after(response);
 	});
 
 });
