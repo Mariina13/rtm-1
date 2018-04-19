@@ -70,33 +70,3 @@ $("#menu li").click(function(){
         // Hide it AFTER the action was triggered
         $("#menu").hide(100);
   });
-  $(function(){
-
-    // JE PRENDS LA MAIN SUR LE FORMULAIRE
-    $(document).ready(function(event){
-        // BLOQUER L'ENVOI DU FORMULAIRE
-
-        console.log("JE PRENDS LA MAIN");
-
-        // ON VA ENVOYER LE FORMULAIRE EN AJAX
-        // ON RECUPERE LES INFOS DU FORMULAIRE
-        var formData = new FormData(this);
-
-        // urlAJax A DETERMINER
-        $.ajax({
-            method:         "POST",
-            url:            urlAjax,
-            data:           formData,
-            contentType:    false,
-            processData:    false
-        })
-        .done(function(response){
-            // CETTE FONCTION SERA APPELEE 
-            // QUAND LE NAVIGATEUR VA RECEVOIR LE REPONSE DU SERVEUR
-            // JE VAIS AFFICHER response DANS LA BALISE .response
-            console.log(response);
-           $("#auto").hide().load(response).show();
-        });
-
-    });
-});

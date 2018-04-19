@@ -3,8 +3,35 @@ function Raffraichir(table)
 {
 	table = setTimeOut(2000);  
 }
+function rafraichir(){
+$(document).ready( function(){
+	// BLOQUER L'ENVOI DU FORMULAIRE
+		console.log("JE PRENDS LA MAIN");
 
+	// ON VA ENVOYER LE FORMULAIRE EN AJAX
+	// ON RECUPERE LES INFOS DU FORMULAIRE
+	var formData = new FormData(this);
 
+	// urlAJax A DETERMINER
+	$.ajax({
+		method:         "GET",
+		url:            urlAjax,
+		data:           formData,
+		contentType:    false,
+		processData:    false
+	})
+	.done(function(response){
+		// CETTE FONCTION SERA APPELEE 
+		// QUAND LE NAVIGATEUR VA RECEVOIR LE REPONSE DU SERVEUR
+		// JE VAIS AFFICHER response DANS LA BALISE .response
+		console.log(response);
+	   $("#borneIp").replaceWith(tr.response);
+	});
+
+});
+}
+rafraichir();
+setInterval(rafraichir, 6000);
 
 /**
  * Created by scomite on 26/04/2017.

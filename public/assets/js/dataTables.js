@@ -30,7 +30,6 @@ $(document).ready(function() {
                 sortDescending: ": activer pour trier la colonne par ordre décroissant"
             }
         },
-
     });
     $('#tableIp tbody').on( 'click', 'tr', function () {
         if ( $(this).hasClass('selected') ) {
@@ -86,6 +85,7 @@ $(document).ready(function() {
 });
 $(document).ready(function() {
    var table = $('#tableId').DataTable( {
+
         pagingType:     "simple_numbers",
         lengthMenu:[5,10,15,20,25],
         pageLength: 5,
@@ -127,7 +127,7 @@ $(document).ready(function() {
 });
 $(document).ready(function() {
     var table = $('#tableRadio').DataTable( {
-        
+
         pagingType:     "simple_numbers",
         lengthMenu:[5,10,15,20,25],
         pageLength: 5,
