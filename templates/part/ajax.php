@@ -1,5 +1,4 @@
 <?php error_reporting(E_ALL); ?>
-          <tr>
             <?php
 $objetRepository     = $this->getDoctrine()->getRepository(App\Entity\Bornes::class);
 $tabResultat         = $objetRepository->findBy(["typeEquipement" => "0"]);    
@@ -130,6 +129,4 @@ if ($objetRequest->get("codebarre", "") == "createParametre")
 ?>
         </form>
     </div>
-<hr>
-</tr>
         

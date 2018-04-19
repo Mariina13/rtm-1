@@ -140,6 +140,7 @@ CODEHTML;
 CODEHTML;
 
 ?>
+            </tr>
             </tbody>
   <?php
 
@@ -209,6 +210,7 @@ if ($objetRequest->get("codebarre", "") == "createParametre")
 ?>
         </form>
     </div>
+    </tr>
 <hr>
 
 
