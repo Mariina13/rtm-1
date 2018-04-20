@@ -119,7 +119,7 @@ CODEHTML;
 <!-- ---------------------------------------- -->
 <!-- ------------- BORNES RADIO ------------- -->
 <table id="tableRadio" class="bornes-ip" data-order='[[ 1, "asc" ]]' data-page-length='5'>
-        <caption>BORNES IP</caption>
+        <caption>BORNES RADIO</caption>
             <thead>
             <tr>
                 <th>SIGEP</th>
