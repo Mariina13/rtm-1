@@ -1,7 +1,6 @@
 <?php error_reporting(E_ALL);
-require_once("$cheminPart/section-menu.php");
-?>
 
+?>
 <table id="tableIp" class="bornes-ip" data-order='[[ 1, "asc" ]]' data-page-length='5'>
         <caption>BORNES IP</caption>
             <thead>
@@ -109,4 +108,5 @@ CODEHTML;
                     </tr>
                 </tbody>
     </table>
+
   

@@ -31,4 +31,4 @@ $(document).ready( function(){
 });
 }
 rafraichirDonnees();
-setInterval(rafraichirDonnees, 60000);
+setInterval(rafraichirDonnees, 30000);
