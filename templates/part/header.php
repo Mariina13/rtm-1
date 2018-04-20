@@ -8,6 +8,7 @@ $urlMode                = $this->generateUrl("mode");
 $urlParametrage         = $this->generateUrl("parametrage");
 $urlMessagerie          = $this->generateUrl("messagerie");
 $urlLogout              = $this->generateUrl("logout");
+
 ?>
 
 
