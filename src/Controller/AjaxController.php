@@ -90,7 +90,8 @@ class AjaxController
         // METHODE DE SYMFONY POUR OBTENIR LE CHEMIN DU DOSSIER rtm-1        
         $cheminSymfony   = $this->getParameter('kernel.project_dir');
         $cheminTemplates = "$cheminSymfony/templates"; 
-        $cheminPart      = "$cheminTemplates/part"; 
+        $cheminPart      = "$cheminTemplates/part";
+
         require_once("$cheminPart/ajax3.php");
 
             $contenuCache = ob_get_clean();
