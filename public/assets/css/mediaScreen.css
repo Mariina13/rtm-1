@@ -4,6 +4,9 @@
     {
         width:400px;
     }
+    h1{
+        margin-left: 24% !important;
+    }
     .formRead
     {
         width:28%;
@@ -48,6 +51,9 @@
 
 @media screen and (max-width: 1680px)
 {
+    h1{
+        margin-left: 22% !important;
+    }
      .formLogin
     {
         width:400px;
