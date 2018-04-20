@@ -1,6 +1,4 @@
 <?php error_reporting(E_ALL); ?>
-
-<section>
 <table id="tableIp" class="bornes-ip" data-order='[[ 1, "asc" ]]' data-page-length='5'>
         <caption>BORNES IP</caption>
             <thead>
@@ -138,8 +136,5 @@ CODEHTML;
 ?>
                     </tr>
                 </tbody>
-    </table>
-
-</section>
     
         
