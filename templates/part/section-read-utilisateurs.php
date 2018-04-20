@@ -16,8 +16,7 @@ ob_start();
 $verfNiveau = $objetSession->get("niveau");
 if($verifNiveau == 9)
 {
-
-$messageUpdate = ob_get_clean();   
+  
 ?>
 
 <!--SECTION POUR LE BOUTON CREATE -->
@@ -33,7 +32,6 @@ $messageUpdate = ob_get_clean();
 <?php } ?>
 
 <hr>
-<?php echo $messageUpdate ?>
 <!--SECTION POUR MODIFIER ET SUPPRIMER + AFFICHAGE DES DONNEES CELON LE NIVEAU -->
 <section>
     <table id="tableId" class="read" data-order='[[ 1, "asc" ]]' data-page-length='5'>
@@ -160,9 +158,9 @@ else
         echo
 <<<CODEHTML
             <tr>
+                <td>$user</td>
                 <td>$nom</td>
                 <td>$prenom</td>
-                <td>$user</td>
                 <td>$niveau</td>
 CODEHTML;
 ?>              
