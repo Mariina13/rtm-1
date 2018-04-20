@@ -1,8 +1,8 @@
 <?php error_reporting(E_ALL); ?>
-<section>
 
 <table id="tableRadio" class="bornes-radio" data-order='[[ 1, "asc" ]]' data-page-length='5'>
         <caption>BORNES RADIO</caption>
+
             <thead>
             <tr>
                 <th>SIGEP</th>
@@ -139,7 +139,7 @@ CODEHTML;
                     </tr>
                 </tbody>
     </table>
-</section>
+
 
 
 

@@ -21,13 +21,14 @@ $(document).ready( function(){
 		// QUAND LE NAVIGATEUR VA RECEVOIR LE REPONSE DU SERVEUR
 		// JE VAIS AFFICHER response DANS LA BALISE .response
 		console.log(response);
-		$("#tableIp").replaceWith(response);
+		
+		$("#tableIp").load(urlAjax);
 	});
 
 });
 }
 rafraichirIp();
-setInterval(rafraichirIp, 15000);
+setInterval(rafraichirIp, 20000);
 
 function rafraichirRadio(){
 	$(document).ready( function(){
@@ -51,13 +52,13 @@ function rafraichirRadio(){
 			// QUAND LE NAVIGATEUR VA RECEVOIR LE REPONSE DU SERVEUR
 			// JE VAIS AFFICHER response DANS LA BALISE .response
 			console.log(response);
-		   $("#tableRadio").replaceWith(response);
+		   $("#tableRadio").load(urlAjax1);
 		});
 	
 	});
 	}
 	rafraichirRadio();
-	setInterval(rafraichirRadio, 15000);
+	setInterval(rafraichirRadio, 20000);
 
 function rafraichirGeze(){
 	$(document).ready( function(){
@@ -81,13 +82,13 @@ function rafraichirGeze(){
 			// QUAND LE NAVIGATEUR VA RECEVOIR LE REPONSE DU SERVEUR
 			// JE VAIS AFFICHER response DANS LA BALISE .response
 			console.log(response);
-			$("#tableGeze").replaceWith(response);
+			$("#tableGeze").load(urlAjax2);
 		});
 	
 	});
 	}
 	rafraichirGeze();
-	setInterval(rafraichirGeze, 15000);
+	setInterval(rafraichirGeze, 20000);
 
 
 function rafraichirEtatSysteme(){
@@ -112,10 +113,10 @@ function rafraichirEtatSysteme(){
 			// QUAND LE NAVIGATEUR VA RECEVOIR LE REPONSE DU SERVEUR
 			// JE VAIS AFFICHER response DANS LA BALISE .response
 			console.log(response);
-			$("#tableSysteme").replaceWith(response);
+			$("#tableSysteme").load(urlAjax3);
 		});
 	
 	});
 	}
 	rafraichirEtatSysteme();
-	setInterval(rafraichirEtatSysteme, 15000);
+	setInterval(rafraichirEtatSysteme, 20000);

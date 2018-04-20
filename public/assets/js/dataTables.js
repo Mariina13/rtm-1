@@ -1,4 +1,3 @@
-
 $(document).ready(function() {
     var table = $('#tableIp').DataTable( {
 
@@ -31,6 +30,7 @@ $(document).ready(function() {
             }
         },
     });
+    
     $('#tableIp tbody').on( 'click', 'tr', function () {
         if ( $(this).hasClass('selected') ) {
             $(this).removeClass('selected');

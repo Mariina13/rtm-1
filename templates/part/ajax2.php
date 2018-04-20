@@ -1,5 +1,5 @@
 <?php error_reporting(E_ALL); ?>
-<section>
+
 <table id="tableGeze" class="bornes-radio" data-order='[[ 1, "asc" ]]' data-page-length='5'>
         <caption>BORNES GEZE</caption>
             <thead>
@@ -132,4 +132,3 @@ CODEHTML;
                     </tr>
                 <tbody>
 </table>
-</Section>
